@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>第1个</div>
+<div>第2个</div>
+<div>第3个</div>
+<div>第4个</div>
+<div>第5个</div>
+<script>
+//   for(var i=0;i<10;i++){
+//       (function (j) {
+//           setTimeout(function () {
+//               console.log(j);
+//           },0)
+//       })(i)
+//
+//   }
+</script>
+<script>
+//    var  divs=document.getElementsByTagName('div');
+//
+//    for(var i=0;i<divs.length;i++){
+//
+//       (function (j) {
+//            divs[i].onclick=function () {
+//                console.log('点击了第'+(j+1)+'个div') ;
+//            }
+//        })(i)
+//
+//        }
+
+
+        var  divs=document.getElementsByTagName('div');
+
+    for(var i=0;i<divs.length;i++){
+
+        divs[i].onclick= (function (j) {
+            return function () {
+                console.log('点击了第'+(j+1)+'个div') ;
+            }
+        })(i)
+
+        }
+
+
+</script>
+<script>
+//    var funl=function () {
+//
+//    }
+//    var fun2=function demo() {
+//
+//    }
+//    console.log(fun2.name);//demo
+//
+//    console.log(funl.name);//fun1
+//    function demo() {
+//
+//    }
+//
+//console.log(demo.name);//demo
+//    demo.name='aam';
+//   console.log(demo.name);//demo
+</script>
+<script>
+    //闭包的获取和设置数据
+    function demo() {
+        var age = 10;
+        var num = 20;
+        return {
+            getAge: function () {
+                return age;
+            },
+
+            setAge: function (newAge) {
+                if (newAge == undefined) return;
+                age = newAge;
+            }
+        }
+    }
+</script>
+<script>
+    //计算器
+//    function sum() {
+//        var a =5;
+//        return function () {
+//            a++;
+//            return a;
+//
+//        }
+//    }
+//    var mv =sum();
+//    console.log(mv());
+</script>
+
+
+<script>
+    //惰性函数
+//    function foo() {
+//        console.log('foo1');
+//
+//        foo= function () {
+//            console.log('foo2');
+//        }
+//    }
+//
+//    foo();//foo1
+//     foo();//foo2
+//    foo();//foo2
+
+
+//    function foo() {
+//        // 初始化的操作
+//        console.log('foo');
+//
+//        foo = function () {
+//            console.log('foofoo');
+//        }
+//    }
+//     foo.des = 'des';
+//     foo(); //foo
+//    foo();//foofoo
+//    console.log(foo.des); //undefined
+
+
+//    function foo() {
+//        // 初始化的操作
+//        console.log('foo');
+//
+//        foo = function () {
+//            console.log('foofoo');
+//        }
+//    }
+//
+//    var fun = foo;
+//       fun();//foo
+//      fun(); //foo
+
+
+//    function foo() {
+//        // 初始化的操作
+//        console.log('foo');
+//
+//        foo = function () {
+//            console.log('foofoo');
+//        }
+//    }
+//
+//    var obj = {
+//        name : 'zs'
+//    };
+//
+//    obj.logDes = foo;
+//
+//    obj.logDes();//foo
+//    obj.logDes();//foo
+
+</script>
+<script>
+    //即时函数
+//    (function () {
+//        console.log('第1种');
+//    })();
+//     +(function () {
+//        console.log('第2种');
+//    })();
+//     -(function () {
+//        console.log('第3种');
+//    })();
+//    !(function () {
+//        console.log('第4种');
+//    })();
+//
+//
+//    var a=(function () {
+//        return 10;
+//    })();
+//    console.log(a);
+</script>
+<script>
+    function creatPerson(name) {
+        var obj=new Object();
+        obj.name=name;
+        return obj;
+    }
+    var p1=creatPerson('xw')
+    console.log(p1);
+</script>
+</body>
+</html>

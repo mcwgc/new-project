@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .box{
+            width: 650px;
+            height: 265px;
+            border: 1px solid #cccccc;
+            margin: 50px auto;
+            position: relative;
+        }
+        ol{
+            position: absolute;
+            z-index: 2;
+            bottom: 5px;
+            right: 5px;
+        }
+        ul{
+            position: relative;
+            z-index: 1;
+
+        }
+        ul>li{
+            position: absolute;
+
+        }
+        img{
+            width: 650px;
+            height: 265px;
+        }
+        ol>li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin: 5px;
+            background:#cccccc;
+            text-align: center;
+        }
+        .cur{
+            background:#f23d7C;
+            color: #cccccc;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <ol>
+        <li class="cur">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ol>
+    <ul>
+        <li><img src="images/01.png" alt=""></li>
+        <li><img src="images/02.png" alt=""></li>
+        <li><img src="images/03.png" alt=""></li>
+        <li><img src="images/04.png" alt=""></li>
+
+    </ul>
+</div>
+<script>
+    $(function () {
+        var _index = 1;
+        $('ol>li:first').css('index', _index);
+        //监听鼠标移入事件
+        $('ol>li').mouseenter(function () {
+            _index++;
+            //设置图片的选中状态
+            $(this).addClass('cur').siblings().removeClass('cur');
+            //切换图片
+            var index=$(this).index();
+            $('ul>li').eq(index).css('z-index',_index);
+        })
+
+
+    })
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

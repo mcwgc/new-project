@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        body{
+            background-color: #070707;
+            overflow: hidden;
+        }
+    </style>
+
+
+</head>
+<body>
+<div id="containerId"></div>
+<script src="konva.js"></script>
+<script src="TextCircle.js"></script>
+<script>
+//1.创建舞台
+    var stage=new Konva.Stage({
+        width:window.innerWidth,
+        height:window.innerHeight,
+        container:'containerId'
+    });
+    //2.创建背景层
+    var bgLayer=new Konva.Layer();
+    stage.add(bgLayer);
+    //3.绘制背景层的内圆
+    var circleX=stage.width()*0.5;
+    var circleY=stage.height()*0.5;
+    var bg_inner_circle_r=150;
+    var bg_outer_circle_r=250;
+
+    var bg_inner_circle=new Konva.Circle({
+        x:circleX,
+        y:circleY,
+        radius:bg_inner_circle_r,
+        stroke:'blue',
+        strokeWidth:5,
+        dash:[9,9],
+    })
+    bgLayer.add(bg_inner_circle);
+   //4.绘制背景层的外圆
+var bg_outer_circle=new Konva.Circle({
+    x:circleX,
+    y:circleY,
+    radius:bg_outer_circle_r,
+    stroke:'pink',
+    strokeWidth:5,
+    dash:[5,5]
+});
+    bgLayer.add(bg_outer_circle);
+
+    //5.创建背景层的中心圆
+var textCircle=new TextCircle({
+    x:circleX,
+    y:circleY,
+    outerRadius:70,
+    innerRadius:60,
+    innerFill:'blue',
+    outerColor:'yellow',
+    text:'麦咭不会喊'
+});
+textCircle.render(bgLayer);
+    //6.绘制背景层
+    bgLayer.draw();
+
+    //7.绘制动画层
+    var anmation_layer=new Konva.Layer();
+    stage.add(anmation_layer);
+    //创建内组
+    var inner_group=new Konva.Group({
+        x:circleX,
+        y:circleY
+    });
+    anmation_layer.add(inner_group);
+    //Mc1
+    var mc1=new TextCircle({
+        x:bg_inner_circle_r*Math.cos(120*Math.PI/180),
+        y:bg_inner_circle_r*Math.sin(120*Math.PI/180),
+        outerRadius:40,
+        innerRadius:35,
+        innerFill:'pink',
+        outerColor:'lightgray',
+        text:'Mc1'
+    });
+    mc1.render(inner_group);
+       //Mc2
+    var mc2=new TextCircle({
+        x:bg_inner_circle_r*Math.cos(150*Math.PI/180),
+        y:bg_inner_circle_r*Math.sin(150*Math.PI/180),
+        outerRadius:40,
+        innerRadius:35,
+        innerFill:'pink',
+        outerColor:'lightgray',
+        text:'Mc2'
+    });
+    mc2.render(inner_group);
+
+//mx
+var MX=new TextCircle({
+    x:bg_inner_circle_r*Math.cos(180*Math.PI/180),
+    y:bg_inner_circle_r*Math.sin(180*Math.PI/180),
+    outerRadius:40,
+    innerRadius:35,
+    innerFill:'pink',
+    outerColor:'lightgray',
+    text:'MX'
+});
+MX.render(inner_group);
+//MX1
+var MX1=new TextCircle({
+    x:bg_inner_circle_r*Math.cos(210*Math.PI/180),
+    y:bg_inner_circle_r*Math.sin(210*Math.PI/180),
+    outerRadius:40,
+    innerRadius:35,
+    innerFill:'pink',
+    outerColor:'lightgray',
+    text:'MX1'
+});
+MX1.render(inner_group);
+//Mc3
+var mc3=new TextCircle({
+    x:bg_inner_circle_r*Math.cos(240*Math.PI/180),
+    y:bg_inner_circle_r*Math.sin(240*Math.PI/180),
+    outerRadius:40,
+    innerRadius:35,
+    innerFill:'pink',
+    outerColor:'lightgray',
+    text:'Mc3'
+});
+mc3.render(inner_group);
+
+//MX4
+var MX4=new TextCircle({
+    x:bg_inner_circle_r*Math.cos(270*Math.PI/180),
+    y:bg_inner_circle_r*Math.sin(270*Math.PI/180),
+    outerRadius:40,
+    innerRadius:35,
+    innerFill:'pink',
+    outerColor:'lightgray',
+    text:'MX4'
+});
+MX4.render(inner_group);
+
+//MX5
+var MX5=new TextCircle({
+    x:bg_inner_circle_r*Math.cos(300*Math.PI/180),
+    y:bg_inner_circle_r*Math.sin(300*Math.PI/180),
+    outerRadius:40,
+    innerRadius:35,
+    innerFill:'pink',
+    outerColor:'lightgray',
+    text:'MX5'
+});
+MX5.render(inner_group);
+
+//MX6
+var MX6=new TextCircle({
+    x:bg_inner_circle_r*Math.cos(330*Math.PI/180),
+    y:bg_inner_circle_r*Math.sin(330*Math.PI/180),
+    outerRadius:40,
+    innerRadius:35,
+    innerFill:'pink',
+    outerColor:'lightgray',
+    text:'MX6'
+});
+MX6.render(inner_group);
+
+//MX7
+var MX7=new TextCircle({
+    x:bg_inner_circle_r*Math.cos(90*Math.PI/180),
+    y:bg_inner_circle_r*Math.sin(90*Math.PI/180),
+    outerRadius:40,
+    innerRadius:35,
+    innerFill:'pink',
+    outerColor:'lightgray',
+    text:'MX6'
+});
+MX7.render(inner_group);
+
+
+//MX8
+var MX8=new TextCircle({
+    x:bg_inner_circle_r*Math.cos(60*Math.PI/180),
+    y:bg_inner_circle_r*Math.sin(60*Math.PI/180),
+    outerRadius:40,
+    innerRadius:35,
+    innerFill:'pink',
+    outerColor:'lightgray',
+    text:'MX8'
+});
+MX8.render(inner_group);
+
+
+//MX9
+var MX9=new TextCircle({
+    x:bg_inner_circle_r*Math.cos(30*Math.PI/180),
+    y:bg_inner_circle_r*Math.sin(30*Math.PI/180),
+    outerRadius:40,
+    innerRadius:35,
+    innerFill:'pink',
+    outerColor:'lightgray',
+    text:'MX9'
+});
+MX9.render(inner_group);
+
+//MX10
+var MX10=new TextCircle({
+    x:bg_inner_circle_r*Math.cos(-360*Math.PI/180),
+    y:bg_inner_circle_r*Math.sin(-360*Math.PI/180),
+    outerRadius:40,
+    innerRadius:35,
+    innerFill:'pink',
+    outerColor:'lightgray',
+    text:'MX10'
+});
+MX10.render(inner_group);
+
+
+
+//创建外租
+var outer_group=new Konva.Group({
+    x:circleX,
+    y:circleY
+});
+anmation_layer.add(outer_group);
+//Mc3
+var mc4=new TextCircle({
+    x:bg_outer_circle_r*Math.cos(360*Math.PI/180),
+    y:bg_outer_circle_r*Math.sin(360*Math.PI/180),
+    outerRadius:50,
+    innerRadius:40,
+    innerFill:'purple',
+    outerColor:'lightgray',
+    text:'Mc4'
+});
+mc4.render(outer_group);
+
+//Mc5
+var mc5=new TextCircle({
+    x:bg_outer_circle_r*Math.cos(120*Math.PI/180),
+    y:bg_outer_circle_r*Math.sin(120*Math.PI/180),
+    outerRadius:50,
+    innerRadius:40,
+    innerFill:'purple',
+    outerColor:'lightgray',
+    text:'Mc5'
+});
+mc5.render(outer_group);
+
+//Mc6
+var mc6=new TextCircle({
+    x:bg_outer_circle_r*Math.cos(240*Math.PI/180),
+    y:bg_outer_circle_r*Math.sin(240*Math.PI/180),
+    outerRadius:50,
+    innerRadius:40,
+    innerFill:'purple',
+    outerColor:'lightgray',
+    text:'Mc6'
+});
+mc6.render(outer_group);
+//Mc
+var mc=new TextCircle({
+    x:bg_outer_circle_r*Math.cos(210*Math.PI/180),
+    y:bg_outer_circle_r*Math.sin(210*Math.PI/180),
+    outerRadius:50,
+    innerRadius:40,
+    innerFill:'blue',
+    outerColor:'lightgray',
+    text:'Mc'
+});
+mc.render(outer_group);
+//Mc7
+var mc7=new TextCircle({
+    x:bg_outer_circle_r*Math.cos(180*Math.PI/180),
+    y:bg_outer_circle_r*Math.sin(180*Math.PI/180),
+    outerRadius:50,
+    innerRadius:40,
+    innerFill:'blue',
+    outerColor:'lightgray',
+    text:'Mc7'
+});
+mc7.render(outer_group);
+
+//Mc8
+var mc8=new TextCircle({
+    x:bg_outer_circle_r*Math.cos(150*Math.PI/180),
+    y:bg_outer_circle_r*Math.sin(150*Math.PI/180),
+    outerRadius:50,
+    innerRadius:40,
+    innerFill:'purple',
+    outerColor:'lightgray',
+    text:'Mc8'
+});
+mc8.render(outer_group);
+//mc9
+var mc9=new TextCircle({
+    x:bg_outer_circle_r*Math.cos(120*Math.PI/180),
+    y:bg_outer_circle_r*Math.sin(120*Math.PI/180),
+    outerRadius:50,
+    innerRadius:40,
+    innerFill:'pink',
+    outerColor:'lightgray',
+    text:'Mc9'
+});
+mc9.render(outer_group);
+//mc10
+var mc10=new TextCircle({
+    x:bg_outer_circle_r*Math.cos(90*Math.PI/180),
+    y:bg_outer_circle_r*Math.sin(90*Math.PI/180),
+    outerRadius:50,
+    innerRadius:40,
+    innerFill:'yellow',
+    outerColor:'lightgray',
+    text:'Mc10'
+});
+mc10.render(outer_group);
+
+//mc11
+var mc11=new TextCircle({
+    x:bg_outer_circle_r*Math.cos(60*Math.PI/180),
+    y:bg_outer_circle_r*Math.sin(60*Math.PI/180),
+    outerRadius:50,
+    innerRadius:40,
+    innerFill:'yellow',
+    outerColor:'lightgray',
+    text:'Mc11'
+});
+mc11.render(outer_group);
+
+//mc12
+var mc12=new TextCircle({
+    x:bg_outer_circle_r*Math.cos(30*Math.PI/180),
+    y:bg_outer_circle_r*Math.sin(30*Math.PI/180),
+    outerRadius:50,
+    innerRadius:40,
+    innerFill:'pink',
+    outerColor:'lightgray',
+    text:'Mc12'
+});
+mc12.render(outer_group);
+//mc13
+var mc13=new TextCircle({
+    x:bg_outer_circle_r*Math.cos(-30*Math.PI/180),
+    y:bg_outer_circle_r*Math.sin(-30*Math.PI/180),
+    outerRadius:50,
+    innerRadius:40,
+    innerFill:'pink',
+    outerColor:'lightgray',
+    text:'Mc13'
+});
+mc13.render(outer_group);
+
+//mc14
+var mc14=new TextCircle({
+    x:bg_outer_circle_r*Math.cos(-60*Math.PI/180),
+    y:bg_outer_circle_r*Math.sin(-60*Math.PI/180),
+    outerRadius:50,
+    innerRadius:40,
+    innerFill:'red',
+    outerColor:'lightgray',
+    text:'Mc13'
+});
+mc14.render(outer_group);
+//mc15
+var mc15=new TextCircle({
+    x:bg_outer_circle_r*Math.cos(-90*Math.PI/180),
+    y:bg_outer_circle_r*Math.sin(-90*Math.PI/180),
+    outerRadius:50,
+    innerRadius:40,
+    innerFill:'red',
+    outerColor:'lightgray',
+    text:'Mc15'
+});
+mc15.render(outer_group);
+
+
+// 绘制动画层
+anmation_layer.draw();
+
+//做动画
+    //一秒旋转的度数
+    var anglePerSe=60;
+// 创建Animation对象，一种特殊的定时器,每一帧会执行一次
+    var anima=new Konva.Animation(function (frame) {
+        //计算一帧需要的时间（ms）
+        var timeDiff=frame.timeDiff/1000;
+        //计算一帧旋转的度数
+        var angle=timeDiff*anglePerSe;
+        //内组做动画
+        inner_group.rotate(angle);
+        inner_group.getChildren().rotate(-angle);
+        //外租做动画
+        outer_group.rotate(-angle);
+        outer_group.getChildren().rotate(angle)
+    },anmation_layer);
+
+    //开启动画
+    anima.start();
+    //绑定事件
+    anmation_layer.on('mouseover',function () {
+        anglePerSe=20;
+    });
+    anmation_layer.on('mouseout',function () {
+        anglePerSe=60;
+    });
+</script>
+</body>
+</html>

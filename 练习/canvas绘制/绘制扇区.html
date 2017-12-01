@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+开始的角度：
+自己可以随便定义
+
+
+扇形的角度一般在for循环里计算是，圆为360度*相对应的value比例值，因为是角度的原因，所以改为弧度的公式为
+*Math.PI/180
+
+
+结束的角度：
+开始的角度加上扇形的角度
+
+
+<canvas id="canvas" height="500" width="900" style="border: 1px solid #000;"></canvas>
+<script>
+    //1.获取标签和上下文
+    var canvas=document.getElementById("canvas");
+    var ctx=canvas.getContext('2d');
+
+    var dateList=[
+        {name:'茂名',color:'red',value:'0.23'},
+        {name:'广东',color:'yellow',value:'0.27'},
+        {name:'广西',color:'pink',value:'0.1'},
+        {name:'广南',color:'blue',value:'0.1'},
+        {name:'广北',color:'purple',value:'0.1'},
+        {name:'广白',color:'green',value:'0.2'}
+    ]
+    var dx=canvas.width*0.5;
+    var dy=canvas.height*0.5;
+    var r=150;
+    var startAngle=-90*Math.PI/180;
+
+    for(var i=0;i<dateList.length;i++){
+        //扇区的角度
+        var tempAngle=360*dateList[i].value*Math.PI/180;
+        //结束的角度
+        var endAngle=startAngle+tempAngle;
+        ctx.beginPath();
+        ctx.moveTo(dx,dy);
+        ctx.arc(dx,dy,r,startAngle,endAngle);
+        //填充颜色
+        ctx.fillStyle=dateList[i].color;
+        ctx.fill();
+        //更新开始的角度，等于下一个扇区开始的角度
+         startAngle=endAngle;
+    }
+</script>
+</body>
+</html>

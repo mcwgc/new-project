@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            background: url("Canvas实现运动的小球/images/p_1.jpg");
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="canvas" height="160" width="320" style="border: 1px solid #000;"></canvas>
+<script>
+    //1.获取标签和上下文
+    var canvas=document.getElementById("canvas");
+    var ctx=canvas.getContext('2d');
+
+    //绘制蒙版
+    ctx.fillStyle="#cc1924";
+
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.globalCompositeOperation="destination-out";
+    //监听鼠标按下事件
+    canvas.onmousedown=function () {
+
+
+        //监听鼠标移动事件
+        canvas.onmousemove=function (e) {
+            ctx.beginPath();
+            ctx.arc(e.offsetX,e.offsetY,10,0,2*Math.PI );
+            ctx.fill()
+        }
+        //监听鼠标抬起事件
+        canvas.onmouseup=function () {
+            //清空鼠标移动事件
+            canvas.onmousemove=null;
+            //清空鼠标抬起事件
+            canvas.onmouseup=null;
+
+//
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+JS的组成：
+1.DOM：文档对象模型，为我们提供一套操作页面元素的方法（API)
+2.BOM:浏览器对象模型，window
+3.ECMAScript：规定了js的核心语法。。js语句 关键字  循环结构 分支结构
+
+js中的基本数据类型：
+string 字符窜  Number 数字类型 boolean布尔类型 undefined（未定义）null（空）
+js中的复杂数据类型：
+object 对象  Array 数组  Date 日期 Function 函数 String 字符窜对象 Number  Boolean
+
+值类型:
+string Number null undefined boolean
+引用类型：
+object array function
+<script>
+//    var a = 9;
+//       var b = 'daf';
+//        var c = a / b;
+//        alert(c);
+
+//闭包理解例题
+/*ar name = "The Window";
+var object = {
+    name : "My Object",
+    getNameFunc : function(){
+        return function(){
+            return this.name;
+        };
+    }
+};
+alert(object.getNameFunc()());
+
+
+var name = "The Window";
+var object = {
+    name : "My Object",
+    getNameFunc : function(){
+        var that = this;
+        return function(){
+            return that.name;
+        };
+    }
+};
+alert(object.getNameFunc()());*/
+
+
+
+function  Animal() {
+    this.color='黑色'
+}
+Animal.prototype.run=function () {
+    console.log('run');
+};
+
+function Person() {
+    this.name='moren'
+}
+
+
+
+Person.prototype.useTool=function () {
+    console.log('玩火');
+};
+Person.prototype=new Animal();
+
+
+
+
+function Stu() {
+this.num='10086';
+}
+Stu.prototype=new Person();
+
+
+
+Stu.prototype.study=function () {
+    console.log('学习');
+};
+function Boy() {
+this.sex='男';
+}
+ Boy.prototype=new Stu();
+Boy.prototype.playGame=function () {
+    console.log('LOL');
+};
+
+var s1 =new Boy();
+console.log(s1);
+</script>
+</body>
+</html>

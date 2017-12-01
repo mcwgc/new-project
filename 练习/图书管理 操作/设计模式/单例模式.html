@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //提供一个全局变量instance（实例）
+     var instance;
+     //提供一个构造函数
+     function Person() {
+         //判断instance是否有就直接返回
+         if(instance){
+             console.log('直接返回第一次对象');
+             return instance;
+         }
+         //this赋值给instance
+         instance=this;
+         //通过this设置属性和方法
+         this.name='zs';
+         console.log('第一次创建对象');
+     }
+     //全局变量在整个作用域都可以访问，一旦这个全局量被覆盖或修改，创建的对象不是之前的单例对象
+
+     var p1=new Person();
+     var p2=new Person();
+     instance='demo';
+     var P3=new Person();
+    console.log(p3);
+</script>
+<script>
+    //静态属性也是可以修改的，一旦被修改了，创建出来的对象就不是之前的单例对象
+      function Person() {
+          //this=obj
+          //this=obj1
+          if(Person.instance){
+              console.log('直接返回第一次创建的对象');
+              return Person.instance;
+
+          }
+          Person.instance=this;
+          this.name='zs';
+          console.log('第一次创建对象');
+      }
+      var P1=new Person();
+      var p2=new Person();
+    console.log(p1 == p2);//true
+    Person.instance='demo';
+    var P3=new Person();
+    console.log(p1 == P3);//false
+</script>
+<script>
+   //1.提供一个构造函数
+    function Person() {
+        //this=obj;
+        //2.提供一个私有的变量instance
+        var instance;
+        //3.利用惰性函数定义更新构造函数
+        Person=function () {
+            //this2=obj2
+            return instance;
+        };
+        //4.把this赋值给instance
+        instance=this;
+        //5.通过this设置属性
+        this.name='zs';
+    }
+    //访问的是旧构造函数的原型对象
+    Person.prototype.des='des';
+    var p1=new Person();
+    //创建对象后，访问时新构造函数的原型对象
+    Person.prototype.hi='hi';
+    var p2=new Person();
+   console.log(p1.des);//des
+   console.log(p1.hi);//undefined
+   console.log(p2.des);//des
+   console.log(p2.hi);//undeefined
+</script>
+<script>
+    //jQuery  框架写法
+    //修改$的变量名，不产生冲突
+   mc =$.noConflict();
+    $(function () {
+
+        var oDiv=$('oDiv');
+        console.log('oDiv');
+        console.log(oDiv.html());
+    })
+//    $('button')[0]=$('button').eq(0)
+
+</script>
+</body>
+</html>

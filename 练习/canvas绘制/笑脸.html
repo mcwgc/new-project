@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="padding: 100px">
+<canvas id="canvas" height="500" width="900" style="border: 1px solid #000;"></canvas>
+<script>
+    //1.获取标签和上下文
+    var canvas=document.getElementById("canvas");
+    var ctx=canvas.getContext('2d');
+    ctx.lineWidth=3;
+    ctx.rect(0,0,200,200);
+    ctx.strokeStyle="blue";
+    ctx.stroke();
+
+    //笑脸
+
+    ctx.beginPath();
+    ctx.lineWidth=1;
+    ctx.strokeStyle="red";
+    ctx.arc(100,100,60,0,2*Math.PI,false)
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(80,80,4,0,2*Math.PI,false);
+    ctx.stroke() ;
+    ctx.beginPath();
+    ctx.arc(120,80,4,0,2*Math.PI,false);
+    ctx.stroke()
+    ctx.beginPath();
+    ctx.arc(100,100,32,0,1*Math.PI,false);
+    ctx.stroke();
+    ctx.beginPath();
+   //绘制文字
+    ctx.font="70px '微软雅黑";
+     ctx.strokeStyle="purple";
+    ctx.shadowColor="orange";
+    ctx.shadowOffsetX=10;
+    ctx.shadowOffsetY=10;
+    ctx.shadowBlur=10;
+     ctx.strokeText("微微一笑，很倾城",0,300);
+
+</script>
+</body>
+</html>

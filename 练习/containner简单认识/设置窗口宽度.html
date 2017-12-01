@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        .container{
+            height: 30px;
+            background-color: red;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="container"></div>
+<script>
+    /*我们经过分析可以把对应的宽度分为四个档位
+  * <750 w：100%
+  *  [750 970) w:750
+  *  [970 1170) w：970
+  *  >1170     w:1170*/
+    window.onload=function () {
+        //1.获取对应的标签
+        var container=document.querySelector('.container');
+        //2.监听屏幕的变化然后根据变化设置对应的宽度
+        //为了能够识别在移动端，我们需要使用事件的时候，我们需要addEventListener来监听事件
+        //我们最好把监听事件的回调抽成一个独立的函数，为了更方便的使用这个函数实现我们对应的效果
+         window.addEventListener('resize',changeContainer);
+         //3.实现回调函数
+        function changeContainer() {
+
+            //分别根据不同档位设置不同的宽度
+            var windonw =window.innerWidth;
+            if (windonw>=1170){
+                container.style.width=1170+'px'
+            }else if (windonw>=970){
+                container.style.width=970+'px'
+
+            }else if (windonw>=750){
+                container.style.width=750+'px'
+            }else{
+                container.style.width='100%'
+            }
+        }
+
+    }
+</script>
+</body>
+</html>

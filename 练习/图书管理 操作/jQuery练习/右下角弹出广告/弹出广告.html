@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <style>
+   *{
+       margin: 0;
+       padding: 0;
+       list-style: none;
+
+   }
+        .ad{
+            width: 300px;
+            height: 195px;
+            background:url("images/ad-pic.png");
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            display: none;
+
+        }
+        .close{
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+            background: red;
+            top:5px;
+            right: 5px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="ad"><span class="close"></span></div>
+    <p>01 jQuery的基础知识点
+        001 jQuery是一款强大的JavaScript框架,内部封装并实现了操作DOM|CSS|选择器和Ajax等强大的功能。
+        002 jQuery版本:2.0.0之前的版本兼容IE678,之后的版本不再对ie6/7/8浏览器兼容
+        003 jQuery使用的冲突解决:
+        如果该项目在引入jQuery框架之前就已经使用了$符号作为标识符,那么需要给jQuery起一个别名
+        在$符号被使用之前设置:var jq = $.noConflict();
+        004 jQuery的入口函数
+        (1) jQuery加载和window.onload方法加载对比
+        ① 调用的时机:jQuery等DOM加载完毕之后执行回调函数|window.onload等所有资源加载完毕之后执行
+        ② 调用的次数:jQuery调用多次那么可以执行多次|window.onload只会执行一次,后面的覆盖前面的
+        ③ 简写:jQuery存在简写方式:jQUery == $
+        (2) 具体写法
+        $(document).ready(function(){//......})
+        $().ready(function(){//..............})
+        $(function(){//......................})
+        005 js对象和jQuery对象之前的转换
+        js对象      -> jQuery对象           $(js对象)
+        jQuery对象  -> js对象               jQuery对象[0]|jQuery对象.eq(0)
+
+        02 jQuery中常见的操作
+        001 操作CSS
+        (1) $(selector).css("属性","属性值")
+        (2) $(selector).css("属性1","属性值").css("属性2","属性值").css....
+        (3) $(selector).css({"属性1":"属性值","属性2":"属性值"})
+        (4) 获取某个特定的属性值:$(selector).css("属性");
+
+        002 操作class
+        (1) 添加class $(selector).addClass("class1").addClass("class2")
+        |$(selector).addClass("class1 class2");
+        (2) 查询class $(selector).hasClass("class1");   //返回值(true|false)
+        (3) 删除class $(selector).removeClass("class1");
+        (4) 切换class toggleClass :如果当前标签中存在该class那么就删除,不存在那就添加
+
+        003 操作位置
+        (1) $(selector).offset().left|top       相对于窗口
+        (2) $(selector).position.left|top       相对于父标签
+        (3) $(selector).width()|height()        如果传递参数表示设置属性值,不传递参数表示获取对应的属性值
+
+        004 操作内容
+        (1) html()   ==> innerHTML
+        (2) text()   ==> innerText
+        说明:如果传递了参数,那么表示替换|没有传递参数,表示获取
+
+
+        03 jQuery中的选择器
+        001 基础选择器
+        (1) id选择器   $("#id")
+        (2) 类选择器   $(".class")
+        (3) 标签选择器 $("标签")
+        (4) 并集选择器 $("#id,.class");
+
+        002 层级选择器
+        (1) 所有指定的后代        $("div span")
+        (2) 所有指定的直接后代     $("div>span")
+        (3) 后面的第一个兄弟节点   $("div+span")
+        (4) 后面的所有兄弟节点     $("div~span")
+
+        003 属性选择器
+        (1) 是否拥有某个属性      $("selector[属性]")
+        (2) 某个属性的值是否满足条件(匹配)
+        ① 等于            $("selector[属性='指定值']")
+        ② 不等于           $("selector[属性!='指定值']")
+        ③ 以特殊字符开头     $("selector[属性^='指定值']")
+        ④ 以特殊字符结尾     $("selector[属性$='指定值']")
+        ⑤ 包含某个特殊子串    $("selector[属性*='指定值']")
+        (2) 多个属性的匹配
+        $("selector[属性1][属性2]")
+
+        004 筛选选择器
+        (1) 第一个和最后一个  first|last
+        (2) 排除            not
+        (3) 相等            eq
+        (4) 奇数            odd
+        (5) 偶数            even
+        (6) 大于和小于       gt|lt
+
+        005 父子选择器
+        (1) 直接父节点      $(selector).parent()
+        (2) 所有的祖先节点   $(selector).parents()
+        (3) 到某个特定标签的所有祖先  $(selector).parentUntil()
+        (4) 子标签          $(selector).children()
+        (5) 兄弟标签        $(selector).siblings()
+
+
+        04 鼠标的移入和移出操作
+        (1) mouseenter|mouseleave      ===> hover
+        (2) mouseover |mouseout        子标签会影响
+        (3) hover(第一个回调函数,第二个回调函数)
+        (4) 元素的角标      $(selector).index()</p>
+        <p>01 jQuery的基础知识点
+        001 jQuery是一款强大的JavaScript框架,内部封装并实现了操作DOM|CSS|选择器和Ajax等强大的功能。
+        002 jQuery版本:2.0.0之前的版本兼容IE678,之后的版本不再对ie6/7/8浏览器兼容
+        003 jQuery使用的冲突解决:
+        如果该项目在引入jQuery框架之前就已经使用了$符号作为标识符,那么需要给jQuery起一个别名
+        在$符号被使用之前设置:var jq = $.noConflict();
+        004 jQuery的入口函数
+        (1) jQuery加载和window.onload方法加载对比
+        ① 调用的时机:jQuery等DOM加载完毕之后执行回调函数|window.onload等所有资源加载完毕之后执行
+        ② 调用的次数:jQuery调用多次那么可以执行多次|window.onload只会执行一次,后面的覆盖前面的
+        ③ 简写:jQuery存在简写方式:jQUery == $
+        (2) 具体写法
+        $(document).ready(function(){//......})
+        $().ready(function(){//..............})
+        $(function(){//......................})
+        005 js对象和jQuery对象之前的转换
+        js对象      -> jQuery对象           $(js对象)
+        jQuery对象  -> js对象               jQuery对象[0]|jQuery对象.eq(0)
+
+        02 jQuery中常见的操作
+        001 操作CSS
+        (1) $(selector).css("属性","属性值")
+        (2) $(selector).css("属性1","属性值").css("属性2","属性值").css....
+        (3) $(selector).css({"属性1":"属性值","属性2":"属性值"})
+        (4) 获取某个特定的属性值:$(selector).css("属性");
+
+        002 操作class
+        (1) 添加class $(selector).addClass("class1").addClass("class2")
+        |$(selector).addClass("class1 class2");
+        (2) 查询class $(selector).hasClass("class1");   //返回值(true|false)
+        (3) 删除class $(selector).removeClass("class1");
+        (4) 切换class toggleClass :如果当前标签中存在该class那么就删除,不存在那就添加
+
+        003 操作位置
+        (1) $(selector).offset().left|top       相对于窗口
+        (2) $(selector).position.left|top       相对于父标签
+        (3) $(selector).width()|height()        如果传递参数表示设置属性值,不传递参数表示获取对应的属性值
+
+        004 操作内容
+        (1) html()   ==> innerHTML
+        (2) text()   ==> innerText
+        说明:如果传递了参数,那么表示替换|没有传递参数,表示获取
+
+
+        03 jQuery中的选择器
+        001 基础选择器
+        (1) id选择器   $("#id")
+        (2) 类选择器   $(".class")
+        (3) 标签选择器 $("标签")
+        (4) 并集选择器 $("#id,.class");
+
+        002 层级选择器
+        (1) 所有指定的后代        $("div span")
+        (2) 所有指定的直接后代     $("div>span")
+        (3) 后面的第一个兄弟节点   $("div+span")
+        (4) 后面的所有兄弟节点     $("div~span")
+
+        003 属性选择器
+        (1) 是否拥有某个属性      $("selector[属性]")
+        (2) 某个属性的值是否满足条件(匹配)
+        ① 等于            $("selector[属性='指定值']")
+        ② 不等于           $("selector[属性!='指定值']")
+        ③ 以特殊字符开头     $("selector[属性^='指定值']")
+        ④ 以特殊字符结尾     $("selector[属性$='指定值']")
+        ⑤ 包含某个特殊子串    $("selector[属性*='指定值']")
+        (2) 多个属性的匹配
+        $("selector[属性1][属性2]")
+
+        004 筛选选择器
+        (1) 第一个和最后一个  first|last
+        (2) 排除            not
+        (3) 相等            eq
+        (4) 奇数            odd
+        (5) 偶数            even
+        (6) 大于和小于       gt|lt
+
+        005 父子选择器
+        (1) 直接父节点      $(selector).parent()
+        (2) 所有的祖先节点   $(selector).parents()
+        (3) 到某个特定标签的所有祖先  $(selector).parentUntil()
+        (4) 子标签          $(selector).children()
+        (5) 兄弟标签        $(selector).siblings()
+
+
+        04 鼠标的移入和移出操作
+        (1) mouseenter|mouseleave      ===> hover
+        (2) mouseover |mouseout        子标签会影响
+        (3) hover(第一个回调函数,第二个回调函数)
+        (4) 元素的角标      $(selector).index()</p>
+</div>
+<script>
+$(function () {
+    //页面加载完毕：从底部展开广告--闪闪
+    $('.ad').slideDown(1000).fadeOut().fadeIn().delay(2000).slideUp();
+    //给关闭标签添加点击事件，关闭广告（收起动画）
+    $('.close').click(function () {
+        //动画队列
+        $(this).parent().stop().slideUp();
+    })
+})
+</script>
+</body>
+</html>

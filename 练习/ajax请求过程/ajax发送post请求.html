@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ajax:async(异步)+Javascript+and+XML
+异步发送网络请求
+局部刷新信息
+1.异步：不必等前面的任务执行完就执行后面的操作，允许多个任务同时执行，效率更高。
+2.同步：必须等当前的任务执行完才能执行后面的操作，阻塞。
+
+<script>
+    //1.创建网络请求对象
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+   // 2.设置请求信息
+    xmlhttp.open('post','php/04-post.php',true)
+   //设置请求头信息
+    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    //3.发送请求
+    xmlhttp.send('name=mcxiaowie')
+    //4.监听网络状态
+    xmlhttp.onreadystatechange=function () {
+        if (xmlhttp.readyState==4){
+            if (xmlhttp.status==200){
+                console.log('成功');
+            }else {
+                console.log('失败');
+            }
+
+        }
+    }
+
+</script>
+
+</body>
+</html>

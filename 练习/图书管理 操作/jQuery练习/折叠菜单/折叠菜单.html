@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+        }
+        .box{
+            width: 300px;
+            border: 1px solid #cccccc;
+            border-radius: 8px;
+            margin: 50px;
+
+        }
+        .first>li{
+            line-height: 35px;
+            border-bottom: 1px solid #cccccc;
+            tab-index: 10px;
+        }
+        .first>li:last-child{
+            border-bottom: none;
+        }
+        span{
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            background:url("images/arrow_right.png");
+            float: right;
+            top: 10px;
+            right: 5px;
+            position: relative;
+            transition:300ms;
+        }
+        .sec{
+            background: #2d2c41;
+            display: none;
+        }
+        .sec>li{
+            color: #cccccc;
+            border-bottom: solid 1px #cccccc;
+            font-size: 14px;
+
+        }
+        .sec>li:hover{
+            background-color: #f23d7C;
+        }
+        .cur span{
+            transform: rotate(90deg);
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul class="first">
+        <li><span></span>一级菜单1<ul class="sec">
+                <li>二级菜单1</li>
+                <li>二级菜单2</li>
+                <li>二级菜单3</li>
+                <li>二级菜单4</li>
+                <li>二级菜单5</li>
+            </ul></li>
+
+
+
+        <li><span></span>一级菜2<ul class="sec">
+                <li>二级菜单1</li>
+                <li>二级菜单2</li>
+                <li>二级菜单3</li>
+                <li>二级菜单4</li>
+                <li>二级菜单5</li>
+            </ul></li>
+
+            <li><span></span>一级菜单3<ul class="sec">
+                    <li>二级菜单1</li>
+                    <li>二级菜单2</li>
+                    <li>二级菜单3</li>
+                    <li>二级菜单4</li>
+                    <li>二级菜单5</li>
+                </ul></li>
+
+                <li><span></span>一级菜单4<ul class="sec">
+                        <li>二级菜单1</li>
+                        <li>二级菜单2</li>
+                        <li>二级菜单3</li>
+                        <li>二级菜单4</li>
+                        <li>二级菜单5</li>
+                    </ul></li>
+
+                <li><span></span>一级菜单5<ul class="sec">
+                        <li>二级菜单1</li>
+                        <li>二级菜单2</li>
+                        <li>二级菜单3</li>
+                        <li>二级菜单4</li>
+                        <li>二级菜单5</li>
+                    </ul></li>
+
+                <li><span></span>一级菜单6<ul class="sec">
+                        <li>二级菜单1</li>
+                        <li>二级菜单2</li>
+                        <li>二级菜单3</li>
+                        <li>二级菜单4</li>
+                        <li>二级菜单5</li>
+                    </ul></li>
+
+                   </ul>
+</div>
+<script>
+$(function () {
+    //监听一级菜单li标签的点击事件
+    $('.first>li').click(function () {
+     //点击事件发生应该执行的操作
+     //展开子标签（二级菜单）注意排他的处理
+       $(this).find('ul').slideToggle(1000) ;
+       $(this).siblings().children('ul').slideUp();
+       //旋转箭头
+        $(this).toggleClass('cur')
+        $(this).siblings().removeClass('cur');
+    })
+})
+</script>
+</body>
+</html>

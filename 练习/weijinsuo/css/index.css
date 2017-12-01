@@ -1,0 +1,526 @@
+
+/*****设置公共样式*/
+
+/*设置对应的系统中可能常用的字体类型，一般我们把这些字体类型设置到body中
+这个写法是固定，永远不变*/
+
+
+
+body{
+    font-family: "Helvetica Neue",
+    Helvetica,
+    Microsoft Yahei,
+    Hiragino Sans GB,
+    WenQuanYi Micro Hei,
+    sans-serif;
+}
+
+/*如果我们需要使用自己的字体图标，我们需要在css文件中引入对应的我们需要的字体图标
+代码一般是固定，就是把对应的资源文件引入到这里
+我们设置字体类型的时候，可以随便定义，但是使用的时候，需要和定义的字体类型一致*/
+@font-face {
+    font-family: xmc;
+    src: url('../fonts/MiFie-Web-Font.eot')format('embedded-opentype'),
+    url('../fonts/MiFie-Web-Font.svg')format('svg'),
+    url('../fonts/MiFie-Web-Font.ttf')format('truetype'),
+    url('../fonts/MiFie-Web-Font.woff')format('woff');
+}
+
+/**当引入字体图标后，我们需要给对应的具体的标签设置对应的详细的字体图标*!*/
+/*i::before{*/
+/*!*设置字体的类型,我们设置类型就是刚才定义的类型*!*/
+/*font-family:xmg;*/
+/*!*设置字体的样式*!*/
+/*font-style: normal;*/
+/*!*设置字体的具体使用的字体图标*!*/
+/*content: ;*/
+/*!*设置字体的大小*!*/
+/*font-size: ;*/
+/*}*/
+/*** 我们经过分析，当设置字体图标的时候，我们的字体类型以及字体样式都是固定不变
+所以为了性能，我们最好把设置字体类型以及字体样式的代码抽取出来****/
+
+/*设置字体图标的公共的样式*/
+[ID^='ios_'],
+[ID*='ios_']{
+  font-family: xmc;
+    font-style:normal;
+}
+#ios_1::before{
+    content: '\e908';
+    font-size: 13px;
+}
+#ios_2::before{
+    content: '\e909';
+    font-size: 13px;
+}
+#ios_3::before{
+    content: '\e920';
+    font-size:50px;
+    color: #C81623;
+    vertical-align: middle;
+    /*line-height: 50px;*/
+}
+#ios_4::before{
+    content: '\e93e';
+    font-size:36px;
+    color: #0f0f0f;
+     vertical-align: middle;
+    /*line-height: 50px;*/
+}
+
+.btn-xmc {
+    color: #FFFFFF;
+    background-color: #E9232C;
+    border-color: #DB3B43;
+}
+
+.btn-xmc:hover,
+.btn-xmc:focus,
+.btn-xmc:active,
+.btn-xmc.active,
+.open .dropdown-toggle.btn-xmc {
+    color: #FFFFFF;
+    background-color: #e9232c;
+    border-color: #DB3B43;
+}
+
+.btn-xmc:active,
+.btn-xmc.active,
+.open .dropdown-toggle.btn-xmc {
+    background-image: none;
+}
+
+.btn-xmc.disabled,
+.btn-xmc[disabled],
+fieldset[disabled] .btn-xmc,
+.btn-xmc.disabled:hover,
+.btn-xmc[disabled]:hover,
+fieldset[disabled] .btn-xmc:hover,
+.btn-xmc.disabled:focus,
+.btn-xmc[disabled]:focus,
+fieldset[disabled] .btn-xmc:focus,
+.btn-xmc.disabled:active,
+.btn-xmc[disabled]:active,
+fieldset[disabled] .btn-xmc:active,
+.btn-xmc.disabled.active,
+.btn-xmc[disabled].active,
+fieldset[disabled] .btn-xmc.active {
+    background-color: #E9232C;
+    border-color: #DB3B43;
+}
+
+.btn-xmc .badge {
+    color: #E9232C;
+    background-color: #FFFFFF;
+}
+
+
+
+#top_lan{
+    height: 40px;
+    /*width: 100%;*/
+    /*border-bottom: solid 1px #dfdfdf;*/
+    line-height: 40px;
+    text-align: center;
+}
+#top_lan .container .row .col-md-2~div{
+    border-left: solid 1px #dfdfdf
+}
+/*调整二维码位置*/
+#top_lan .container .row .col-md-2 a img{
+    position: relative;
+    top: -14px;
+    left: 6px;
+    display: none;
+    z-index: 9999;
+}
+#top_lan .container .row .col-md-2 a:hover img{
+    display: block;
+}
+/*调整导航条字体位置*/
+.navbar{
+    /*margin-top: 1px;*/
+    /*height: 73px;*/
+    background-color: #fff;
+    margin-bottom: 0;
+}
+
+
+ .navbar-nav>.active>a,
+ .navbar-nav>li>a:hover,
+ .navbar-nav>li>a:focus
+{
+
+    /*background-color: rgba(0,0,0,0);*/
+    background-color: transparent;
+    border-bottom:2px solid #E9232C;
+}
+.navbar-nav>li>a{
+    height: 63px;
+    line-height: 38px;
+}
+/*设置轮播图样式*/
+/*设置背景图片样式*/
+#wjs-show .item{
+    background:  center center  no-repeat;
+    background-size: cover;
+}
+/*当显示小图的时候，设置小图宽度为100%*/
+#wjs-show .item img{
+    width: 100%;
+}
+/*当设置背景图的时候，我们的高度不变化*/
+@media screen and (min-width: 790px) {
+    #wjs-show .item{
+        height: 410px;
+    }
+}
+/*设置产品展示间距*/
+#wjs-display{
+    margin-top: 50px;
+    border-bottom: solid 1px #adadad;
+}
+/*设置产品展示的字标*/
+#ios_5::before,
+#ios_6::before,
+#ios_7::before,
+#ios_8::before,
+#ios_9::before,
+#ios_10::before{
+    content:'\e907';
+    font-size: 35px;
+}
+/*去掉产品展示的下划线*/
+#wjs-display .container .media a{
+    text-decoration: none;
+}
+#wjs-display .container .media a:hover{
+    color: red;
+}
+/*设置预约距离和字体大小*/
+#wjs-order{
+    margin-top: 30px;
+    font-size: 15px
+}
+#wjs-order .container .row a strong{
+    color: #C81623;
+    border-bottom: dashed 1px #adadad;
+}
+#wjs-order .container .row .colors{
+    color: #C81623;
+}
+/*设置预约的字体图标和大小*/
+#ios_11::before{
+    content: '\e906';
+    font-size:20px;
+
+}
+#ios_12::before{
+    content: '\e905';
+    font-size:20px;
+}
+/*设置产品中心指导条的文字颜色和边框*/
+#wjs-product{
+    padding: 50px 0;
+    background-color: #e0e0e0;
+}
+#wjs-product .row li a{
+    background:transparent;
+    border-color: transparent;
+
+}
+#wjs-product .nav li.active a{
+    color: #0f0f0f;
+    border-bottom:solid 3px red;
+}
+/*设置产品中心 的上边距*/
+#wjs-product .tab-content{
+    padding: 20px 0;
+}
+#wjs-product .tab-content .panel{
+
+    padding: 0 13px;
+    height: 150px;
+}
+#wjs-product .tab-content .panel .panel-body{
+
+    height:100%;
+    margin-right: 120px;
+    padding: 0 6px;
+
+
+}
+#wjs-product .tab-content .panel-body .container{
+
+    width: 100%;
+}
+#wjs-product .tab-content .panel .panel-heading{
+    float: right;
+    width:120px;
+    height:100%;
+    /*设置内容居中*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px dashed #e0e0e0;
+
+    position: relative;
+
+}
+/*设置heading中的小的样式*/
+#wjs-product .tab-content .panel .panel-heading strong{
+
+    color: #E9232C;
+    font-size: 26px;
+
+}
+
+#wjs-product .tab-content .panel .panel-heading sub{
+    color: #E9232C;
+
+}
+
+
+#wjs-product .tab-content .panel .panel-heading span{
+
+    font-size: 16px;
+}
+
+/*伪类：before以及after:一般用来修饰某个标签局部的颜色以及局部的样式
+我们设置对应的半圆可以通过给heading设置伪类实现*/
+#wjs-product .tab-content .panel .panel-heading::before{
+
+    content: '';
+    width: 16px;
+    height:16px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    position: absolute;
+    left:-8px;
+    top:-8px;
+
+}
+#wjs-product .tab-content .panel .panel-heading::after{
+    content: '';
+    width: 16px;
+    height:16px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    position: absolute;
+    left: -8px;
+    bottom: -8px;
+
+}
+/*为了性能，我们一般把重复的设置抽取出来*/
+
+/*设置对应的body中的dt的文字的颜色*/
+#wjs-product .tab-content .panel .panel-body dt{
+
+    font-size: 12px;
+    color: #777;
+
+
+
+}
+
+
+/*设置各自的独立的主题*/
+#wjs-product .tab-content .first  .panel {
+
+    background-color: #E9232C;
+    color: #fff;
+
+    position: relative;
+}
+
+
+/*因为我们对应的strong以及sub没有继承文字的颜色，所以需要独立设置*/
+#wjs-product .tab-content .first  .panel .panel-heading strong{
+
+    color:#fff;
+}
+#wjs-product .tab-content .first  .panel .panel-heading sub{
+
+    color:#fff;
+
+}
+
+/*设置左侧图标，我们可以给panel设置对应的伪类*/
+#wjs-product .tab-content .first  .panel::before{
+
+    /*设置字体图标的类型*/
+    font-family: xmc;
+    content: '\e915';
+    font-size: 45px;
+    position: absolute;
+    left: -1px;
+    top: -10px;
+
+
+}
+
+/*设置第二个对应的panel的背景以及对应的字体图标*/
+#wjs-product .tab-content .second .panel{
+    background-color: #e8e8e8;
+    position: relative;
+
+
+}
+#wjs-product .tab-content .second .panel::after{
+    font-family: xmc;
+    content: '\e925';
+    font-size: 100px;
+    color: #E9232C;
+
+    position: absolute;
+    left: 150px;
+    top: 10px;
+
+
+}
+/*设置新闻中心的字体图标*/
+#ios_news01::before{
+    content: '\e90e';
+    font-size: 25px;
+    color: #c4c4c4;
+
+}
+#ios_news02::before{
+    content: '\e910';
+    font-size: 25px;
+    color: #c4c4c4;
+}
+#ios_news03::before{
+    content: '\e911';
+    font-size: 25px;
+    color: #c4c4c4;
+}
+#ios_news04::before{
+    content: '\e912';
+    font-size: 25px;
+    color: #c4c4c4;
+}
+#wjs-news {
+   padding: 50px 0;
+    border-bottom: solid 1px #adadad;
+    /*text-align: center;*/
+}
+#wjs-news .row h4{
+    text-align: center;
+    border-bottom: dashed 1px #adadad;
+    height: 40px;
+}
+#wjs-news .row ul li a{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    text-align: center;
+}
+#wjs-news .row ul li.active a{
+    background-color: red;
+}
+#wjs-news .row .tab-content ul li {
+    list-style: none;
+    height: 45px;
+}
+
+/*设置底部位置*/
+#wjs-footer{
+    padding: 50px 0;
+}
+#wjs-footer ul{
+    font-size: 0;
+    list-style: none;
+}
+#wjs-footer ul li a{
+    text-decoration: none;
+}
+#wjs-footer ul li{
+    width: calc(100%/9);
+    display: inline-block;
+    font-size: 100px;
+}
+#wjs-footer ul li+li{
+    border-left:1px dashed  #ccc;
+}
+#wjs-footer ul li a {
+    font-size:65px;
+    color: #999999;
+}
+#ios_uniE930:hover {
+    color: #df3232;
+}
+
+#ios_uniE930::before {
+    content: "\e946";
+    /*color: red;*/
+}
+
+#ios_uniE92F:hover {
+    color: #e8380d;
+}
+
+#ios_uniE92F::before {
+    content: "\e92f";
+}
+
+#ios_uniE92E:hover {
+    color: #ed6f00;
+}
+
+#ios_uniE92E::before {
+    content: "\e92e";
+}
+
+#ios_uniE92A:hover {
+    color: #159f69;
+}
+
+#ios_uniE92A:before {
+    content: "\e92a";
+}
+
+#ios_uniE929:hover {
+    color: #07569e;
+}
+
+#ios_uniE929:before {
+    content: "\e929";
+}
+
+#ios_uniE931:hover {
+    color: #004098;
+}
+
+#ios_uniE931:before {
+    content: "\e931";
+    /*font-size:25px;*/
+}
+
+#ios_uniE92C:hover {
+    color: #d32019;
+}
+
+#ios_uniE92C:before {
+    content: "\e92c";
+}
+
+#ios_uniE92B:hover {
+    color: #3eac4a;
+}
+
+#ios_uniE92B:before {
+    content: "\e92b";
+}
+
+#ios_uniE92D:hover {
+    color: #2bb289;
+}
+
+#ios_uniE92D:before {
+    content: "\e92d";
+}
+
+

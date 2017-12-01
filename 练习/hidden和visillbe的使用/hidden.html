@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            margin: 0 auto;
+        }
+        /*我们可以根据不同的档位设置对应的显示和隐藏*/
+        /*768
+          992
+          1200*/
+        @media screen and (max-width: 768px){
+           /*表示超小屏幕，就设置超小不显示*/
+            .hidden-xs{
+                display:none
+            }
+        }
+        @media screen and (min-width: 768px) and (max-width: 992px){
+            .hidden-sm{
+                display: none;
+            }
+        }
+        @media screen and (min-width: 992px) and (max-width: 1200px){
+            .hidden-md{
+                display: none;
+            }
+        }
+        @media screen and (min-width: 1200px) {
+             .hidden-lg{
+                 display: none;
+             }
+        }
+
+    </style>
+</head>
+<body>
+<div class="container hidden-sm"></div>
+</body>
+</html>

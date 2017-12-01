@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>1111</div>
+<div>22222</div>
+<div>3333</div>
+<div>44444</div>
+<div>5555</div>
+<div>66666</div>
+<script>
+        var f = new Number(true);
+        if (f == true) {
+            var a = 10;
+        }
+
+        function fn() {
+            var b = 20;
+            c = 30;
+        }
+
+        fn();
+        console.log(a); //10
+        console.log(b); //报错
+       console.log(c);//30
+</script>
+<script>
+        var name = 'World!';
+
+        (function () {
+                var name;
+            if (typeof name === 'undefined') {
+                 name = "张三";
+                console.log('hi ' + name);//hi 张三 函数作用域找name的属性，没有就是undefined
+            } else {
+                console.log("hello"  + name);
+            }
+        })();
+</script>
+<script>
+        console.log(Array.isArray(Array.prototype)); // true
+    console.log(Object.prototype.toString.call(Array.prototype)); // [object Array]
+    //数组的原型对象就是数组
+</script>
+<script>
+//     [] [0] 在作为条件判断的时候都成立
+
+        if ([0]) {
+
+            console.log([0] == true);//true
+        } else {
+            console.log("NO");
+        }
+</script>
+<script>
+        (function(){
+            var x = y = 1;
+           var x = 1;
+           y =1;
+        })();
+
+        console.log(y);//1
+        console.log(x);//报错
+
+
+
+
+
+        (function(){
+
+            var x = 1;
+            var y = 1;
+        })();
+
+        console.log(y);//报错
+        console.log(x);//报错
+</script>
+<script>
+        var a = {}, b = Object.prototype;
+        console.log([a.prototype === b, Object.getPrototypeOf(a) === b]);//false 和true
+                   //a不是构造函数，没有原型对象      获取对象的原型对象
+        console.log(a.prototype);//undefined
+</script>
+<script>
+    function f() {}
+    var a = f.prototype;
+    var b = Object.getPrototypeOf(f);
+    console.log(a === b);//false
+
+
+    console.log((b == f));//false  {}{}虽然同样是空函数但是地址不同所以不相等
+</script>
+<script>
+        function foo() { }
+        var oldName = foo.name;
+        foo.name = "bar";
+
+        console.log(oldName);//foo
+        console.log(foo.name);//foo
+
+        console.log(oldName === foo.name);//true
+        console.log([oldName, foo.name]);//foo，foo
+</script>
+<script>
+
+    function f() {}
+    var parent = Object.getPrototypeOf(f);
+
+    console.log(f.name);//f
+    console.log(parent.name);//空
+</script>
+<script>
+//    var num;
+//    function f1(){
+//        var num;
+//        function f2(){
+//            var num;
+//            num = 99;
+//            console.log(num);
+//        }
+//        console.log(num);
+//        num = 66;
+//        console.log(num);
+//
+//        num = 1000;
+//        f2();
+//        console.log(num);
+//    }
+//    num = 10;
+//
+//    f1();
+//    console.log(num);
+
+//var  num;
+//function f1(){
+//    var num;
+//    function f2(){
+//        var num;
+//         num = 99;
+//        console.log(num);//99
+//    }
+//    console.log(num);//undefined
+//     num = 66;
+//    console.log(num);//66
+//
+//    num = 1000;
+//    f2();
+//    console.log(num);//1000
+//}
+//    num = 10;
+//
+//    f1();
+//    console.log(num); //10
+//
+//
+//
+//
+//
+//
+//function func() {
+//    var num=10;
+//
+//    return function (n) {
+//        num =n;
+//        console.log(num);
+//    }
+//
+//}
+//
+//var funcName=func();
+//funcName('你好啊')
+
+
+</script>
+<script>
+    //关于setTimeOut函数
+//    for(var i=0;i<10;i++){
+//        setTimeout((function (j) {
+//            return function () {
+//                console.log(j);
+//            }
+//        })(i),10);
+//        console.log(('----'));
+//    }
+//
+//
+//    for(var i=0;i<10;i++) {
+//        (function (j) {
+//            setTimeout(function () {
+//                console.log(j);
+//            },0)
+//        })(i)
+//
+//    }
+//
+//    for(var i=0;i<10;i++) {
+//        setTimeout((function (j) {
+//            return function () {
+//                console.log(j);
+//            }
+//        })(i), 10);
+//    }
+//
+//
+//
+//   setTimeout((function (j) {
+//       return function () {
+//           console.log(j);
+//       }
+//   })(i),0)
+//
+
+</script>
+<script>
+//   var divs=document.getElementsByTagName('div');
+//   for(var i=0;i<divs.length;i++) {
+//
+//
+//
+//       divs[i].onclick=(function  (j) {
+//           return function () {
+//               console.log('第几个' + (j + 1));
+//           }
+//       })(i)
+//   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+<script>
+//    //函数声明
+//    function add() {
+//
+//    }
+//    //函数表达式:
+//    //命名函数表达式
+//    var add=function add(a,b) {
+//        return a+b;
+//    }
+//    //匿名函数表达式
+//    var  add=function (a,b) {
+//        return a+b;
+//    }
+</script>
+<script>
+//    //惰性函数
+//    function foo() {
+//        console.log('foo1');
+//        foo=function () {
+//            console.log('foo2');
+//        }
+//    }
+//   foo();
+//    foo();
+</script>
+<script>
+//    //即时函数
+//    (function () {
+//        console.log('第一种写法');
+//    })();
+//
+//    ((function () {
+//        console.log('第二种写法');
+//    })())
+
+</script>
+<script>
+
+    //即时对象初始化
+    ({
+        name: '张三',
+        age: 221,
+        getDescript: function () {
+            console.log('名字：' + this.name + "年龄" + this.age);
+        },
+        init: function () {
+            this.getDescript();
+        }
+    }).init();
+
+
+
+
+</script>
+</body>
+</html>

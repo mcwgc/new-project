@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <style>
+      *{
+        margin: 0;
+         padding: 0;
+          list-style: none;
+
+        }
+        .nav{
+            width:648px;
+            height: 44px;
+            margin: 50px;
+            border: solid 1px #cccccc;
+            background: #cccccc;
+        }
+        .first>li{
+            float: left;
+            line-height: 44px;
+            text-align: center;
+            font-size: 16px;
+
+        }
+        body{
+            background-color: #2d2c41;
+
+        }
+        .sec{
+            display: none;
+            background: #cccccc;
+        }
+    </style>
+</head>
+<body>
+<div class="nav">
+    <ul class="first">
+        <li>我是一级标签1
+            <ul class="sec">
+                <li>我是二级标签1</li>
+                <li>我是二级标签2</li>
+                <li>我是二级标签3</li>
+                <li>我是二级标签4</li>
+                <li>我是二级标签5</li>
+            </ul>
+        </li>
+        <li>我是一级标签2
+            <ul class="sec">
+                <li>我是二级标签1</li>
+                <li>我是二级标签2</li>
+                <li>我是二级标签3</li>
+                <li>我是二级标签4</li>
+                <li>我是二级标签5</li>
+            </ul>
+        </li>
+        <li>我是一级标签3
+            <ul class="sec">
+                <li>我是二级标签1</li>
+                <li>我是二级标签2</li>
+                <li>我是二级标签3</li>
+                <li>我是二级标签4</li>
+                <li>我是二级标签5</li>
+            </ul>
+        </li>
+        <li>我是一级标签4
+            <ul class="sec">
+                <li>我是二级标签1</li>
+                <li>我是二级标签2</li>
+                <li>我是二级标签3</li>
+                <li>我是二级标签4</li>
+                <li>我是二级标签5</li>
+            </ul>
+        </li>
+        <li>我是一级标签5
+            <ul class="sec">
+                <li>我是二级标签1</li>
+                <li>我是二级标签2</li>
+                <li>我是二级标签3</li>
+                <li>我是二级标签4</li>
+                <li>我是二级标签5</li>
+            </ul>
+        </li>
+        <li>我是一级标签6
+            <ul class="sec">
+                <li>我是二级标签1</li>
+                <li>我是二级标签2</li>
+                <li>我是二级标签3</li>
+                <li>我是二级标签4</li>
+                <li>我是二级标签5</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script>
+    $(function () {
+
+        $('li').hover(function () {
+            $(this).children().slideToggle();
+        })
+
+
+    })
+
+
+</script>
+</body>
+</html>

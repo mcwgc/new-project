@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    http://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=abc&cb=jQuery110209211765974155819_1510367204044
+
+
+    jQuery110209211765974155819_1510367204044({q:"abc",p:false,s:["abcam","abcc形式的成语","abcdv","abc360","ab测试","abcdefghijklmnopqrstuvwxyz","abcmouse","abc cooking studio","abcam官网","abcd"]});
+-->
+<input type="text" placeholder="请输入内容" id="demoID">
+<script>
+     function f(obj) {
+         var dataAarry=obj["s"];
+          var oUl=document.getElementsByTagName("ul")[0]||document.createElement("ul");
+
+
+          oUl.innerText= "";
+          for(var i=0;i<dataAarry.length;i++)
+          {
+              var oLi=document.createElement("li");
+              oLi.innerText=dataAarry[i];
+              oUl.appendChild(oLi);
+          }
+      document.body.appendChild(oUl);
+     }
+</script>
+<script>
+    //01获取文本输入框并且添加监听事件
+    var oText=document.getElementById("demoID");
+    oText.onkeyup=function () {
+        //02创建script标签
+        var oScript=document.getElementsByClassName("ScriptClass")[0]
+        if (oScript)document.body.removeChild(oScript);
+        oScript  = document.createElement("script");
+        //03设置src属性
+        oScript.setAttribute("src","https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+oText.value+"&cb=f");
+        oScript.setAttribute("class","scriptClass")
+        //04把标签添加到页面中
+        document.body.appendChild(oScript);
+
+    }
+</script>
+</body>
+</html>

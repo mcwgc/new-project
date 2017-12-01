@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            width: 1000px;
+            margin: 50px;
+            /*border: solid 1px #000000;*/
+        }
+        .nav{
+            width: 500px;
+            height: 50px;
+            border: solid 1px #cccccc;
+            border-bottom: none;
+            background: #ffffff;
+            top: 1px;
+            position: relative;
+        }
+        .content{
+            width: 1000px;
+            height: 475px;
+            border: solid 1px #cccccc;
+
+        }
+        li{
+            float: left;
+            width: 120px;
+            line-height: 50px;
+            text-align: center;
+        }
+        .content img{
+            width: 1000px;
+            height: 475px;
+
+        }
+        .content>div{
+            display: none;
+
+        }
+        .active{
+            color: red;
+            font-size: 18px;
+        }
+        .content .cur{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="nav">
+        <ul>
+            <li class="active">HTML学院</li>
+            <li>ios学院</li>
+            <li>网页和UI</li>
+            <li>java学院</li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="cur"><img src="images/01.png" alt=""></div>
+        <div><img src="images/02.png" alt=""></div>
+        <div><img src="images/03.png" alt=""></div>
+        <div><img src="images/04.png" alt=""></div>
+    </div>
+</div>
+<script>
+    $(function () {
+    //1.监听li标签的鼠标移入事件
+        $('li').mouseenter(function () {
+            //设置让当前的标签成为选中的状态
+            $(this).addClass('active');
+            //设置当前标签的兄弟点取消选中
+            $(this).siblings().removeClass('active');
+            //设置显示对应的图片
+            var index=$(this).index();
+            $('.content>div').eq(index).addClass('cur').siblings().removeClass('cur')
+        })
+    })
+</script>
+</body>
+</html>

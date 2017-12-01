@@ -1,0 +1,30 @@
+/**{*/
+    /*padding: 0;*/
+    /*margin: 0;*/
+
+/*}*/
+body{
+    padding-top: 50px;
+}
+#maxx{
+    padding: 30px;
+    text-align: center;
+
+
+}
+#maxx .row .col-md-4 p{
+    text-align: left;
+    text-indent: 8%;
+}
+.container-fluid .row img{
+    width: 150px;
+}
+#cen {
+    margin: 20px;
+    text-align: center;
+    text-align: left;
+    text-indent: 8%;
+}
+#cent{
+    margin-top: 30px;
+}

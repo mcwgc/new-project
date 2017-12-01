@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <!--对应浏览器解析器-->
+    <!--<meta http-equiv="X-UA-Compatible" content="egde">-->
+   <!--兼容移动设备视口-->
+    <!--<meta name="viewport"
+     content="width=device-width,initial-scale=1.0">-->
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body>
+<!--导航条-->
+<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">广州小码哥教育</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">简介<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">综述</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">学院 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">IOS学院</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">JAVA学院</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">HTML5学院</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">UI学院</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">安卓学院</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="#">关于</a></li>
+                <li><a href="#">社区</a></li>
+                <li><a href="#">服务</a></li>
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!--轮播图-->
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="image/nav_01.jpg" alt="...">
+
+        </div>
+        <div class="item">
+            <img src="image/nav_02.jpg" alt="...">
+            <div class="carousel-caption">
+                <p class="text-success">MC很牛逼</p>
+                <button class="btn btn-success">是不是？</button>
+            </div>
+        </div>
+        <div class="item">
+            <img src="image/nav_03.jpg" alt="...">
+
+        </div>
+
+
+    </div>
+
+    <!-- Controls -->
+<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+</a>
+<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+</a>
+</div>
+
+<!--指示器-->
+<div id="maxx">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4"><img src="image/apple.png " alt="" class="img-circle">
+            <h2>HTML5学院</h2>
+            <p>HTML5学院,又称大神学院,学院的每一个学生都十分的牛逼,他们的梦想是用"指尖改变世界",励志做"中国的乔布斯"</p>
+            <button class="btn btn-success">立即咨询</button></div>
+        <div class="col-md-4"> <img src="image/java.png " alt="" class="img-circle">
+            <h2>Java学院学院</h2>
+            <p>Java学院,学院的每一个学生也很牛逼,他们的梦想是通过代码改变自己,终极目标:"瞬间高富帅,赢取白富美"。</p>
+            <button class="btn btn-success">立即咨询</button></div>
+        <div class="col-md-4"> <img src="image/web.png" alt="" class="img-circle">
+            <h2>网页UI学院学院</h2>
+            <p>网页UI学院,又称女神学院。学院每个学生的梦想是:设计出能改变世界的UI界面,成为其他两大学院男生心目中的女神。</p>
+            <button class="btn btn-success">立即咨询</button></div>
+
+    </div>
+</div>
+</div>
+
+
+<!--内容-->
+<div id="cen">
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">HTML5</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">JAVA</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">UI</a></li>
+
+    </ul>
+
+    <!-- Tab panes -->
+    <div id="cent">
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-5"><img src="image/firefox-logo.jpg " alt="" class="img-circle"></div>
+                    <div class="col-md-7"><h2>HTML5学院 <small>史上最具逼格</small></h2>
+                        <p>HTML5学院,又称大神学院,学院的每一个学生都十分的牛逼,他们的梦想是用"指尖改变世界",励志做"中国的乔布斯"</p></div>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="profile">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h2>Java学院 <small>史上最具实力</small></h2>
+                        <h4>Java学院,学院的每一个学生也很牛逼,他们的梦想是通过代码改变自己,终极目标:"瞬间高富帅,赢取白富美"</h4></div>
+                    <div class="col-md-5"><img src="image/safari-logo.jpg " alt="" class="img-circle"></div>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="messages">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-5"><img src="image/ie-logo.jpg " alt="" class="img-circle"></div>
+                    <div class="col-md-7"><h2>UI学院 <samll>史上最具逼格</samll></h2>
+                        <h4>UI学院，又称大神学院，学院内优秀学员比比皆是,不断挑战着业界薪资神话。学院的每一个学生都十分的牛逼,他们的梦想是用"指尖改变世界",励志做"中国的乔布斯"。</h4></div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+<!--虚线-->
+<hr>
+
+<!--底部-->
+<footer>
+<p class="pull-left">&copy; 2017 广州小码哥教育集团</p>
+<p class="pull-right">回到顶部</p>
+</footer>
+<script src="bootstrap/js/jquery-1.11.1.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+</body>
+</html>

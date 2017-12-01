@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.2.1.js/"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            /*border: 0;*/
+        }
+
+        .box{
+            width: 500px;
+            height: 500px;
+            margin: 50px auto;
+
+        }
+
+        .box ul li{
+            width: 142px;
+            height: 142px;
+            float: left;
+            border: 1px solid #000000;
+            margin: 10px;
+            border-radius: 50%;
+        }
+
+        .cur{
+            background: yellowgreen;
+        }
+        button>p{
+            margin: 30px auto;
+            width: 80px;
+            height: 209px;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+<button><p>开始抽奖</p></button>
+<div class="box">
+    <ul >
+        <li><img src="images/1.png"></li>
+        <li><img src="images/2.png"></li>
+        <li><img src="images/3.png"></li>
+        <li><img src="images/4.png"></li>
+        <li><img src="images/5.png"></li>
+        <li><img src="images/6.png"></li>
+        <li><img src="images/7.png"></li>
+        <li><img src="images/8.png"></li>
+        <li><img src="images/3.png"></li>
+    </ul>
+</div>
+
+<script>
+    $(function () {
+
+        var goods = {
+            '0':'电音耳机',
+            '1':'犯罪电脑',
+            '2':'罪过罪过',
+            '3':'Nake鞋',
+            '4':'Nake鞋',
+            '5':'芭芭娃娃',
+            '6':'ipone手机',
+            '7':'noker手机',
+            '8':'罪过罪过'
+        };
+
+        $("li:first").addClass("cur");
+
+        //01 先把图片加载进来
+        $("li").each(function (index,dom) {
+            //index :0-1-2-3..
+            //dom--当前的li标签 - this
+            if(index == 8) index = 2;
+
+            var imgPath = "images/" + (index +1) + ".png";
+            $(this).children("img").attr("src",imgPath);
+        })
+
+        //02 监听按钮的点击事件
+        $("button").click(function () {
+            //(1) 生成随机数,指定奖品的索引
+            var count = Math.floor(Math.random() * 9) + 9;
+
+
+            //初始索引的值为0
+            var index = 0;
+            //(2) 开启定时器
+            var timer =  setInterval(function () {
+               count --;
+               if(count == 0)
+               {
+                   //停止定时器
+                   clearInterval(timer);
+                   alert(goods[index]);
+                   return;   //后面的代码不再执行
+               }
+
+               index ++;
+               if(index == 9) index = 0;
+               $("li").eq(index).addClass("cur").siblings().removeClass("cur");
+
+           },200)
+        });
+    })
+</script>
+</body>
+</html>

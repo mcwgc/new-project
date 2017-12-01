@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../图书管理 操作/jQuery练习/js/jquery-3.2.1.js"></script>
+
+</head>
+<body>
+<button>GET请求</button>
+<button>POST请求</button>
+<script>
+    //$.get()
+    $(function () {
+        $("button").eq(0).click(function () {
+            //$.get(url,data,success(response,status,xhr),dataType)
+            //url:请求路径
+            //data：提交参数   支持JSON对象|查询字符串
+            //success:请求成功的回调函数
+            //             response：响应体
+            //             status:  请求的状态，有两个值（success-error）
+            //            xhr:请求对象本身
+            // dataType：期望服务器返回的数据类型   ：text|json|jsonP...
+            $.get(
+                //请求路径
+                "php/02-demo.php",
+                //{"name":"mc","color":"red"},
+                "name=mc&color=red",
+                function (response,status,xhr) {
+                    console.log("请求完成");
+                    console.log(response);
+                    console.log(status);
+                    console.log(xhr);
+
+                }
+            )
+        })
+        $("button").eq(1).click(function () {
+            //$.get(url,data,success(response,status,xhr),dataType)
+            //url:请求路径
+            //data:提交的参数   支持JSON对象|查询字符串
+            //success：请求成功的回调函数
+            //      response：响应体
+            //      status：  请求状态
+            //        xhr：    请求对象本身
+            //dataType：期望服务器返回的数据类型
+            $.post(
+                "php/02-demo.php",
+                //{"name":"mc","color":"red"}
+                "name=mc&color=red",
+                function (response,status,xhr) {
+                    console.log("请求成功");
+                    console.log(response);
+                    console.log(status);
+                    console.log(xhr);
+
+                }
+            )
+        })
+    })
+</script>
+</body>
+</html>

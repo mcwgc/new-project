@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas{
+            background-color:black;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" height="800" width="900" style="border: 1px solid #000;"></canvas>
+<script>
+    //1.获取标签和上下文
+    var canvas=document.getElementById("canvas");
+    var ctx=canvas.getContext('2d');
+
+    //绘制背景
+   function mis() {
+
+
+        ctx.save();
+        ctx.beginPath();
+    ctx.translate(350,300);
+//        ctx.lineWidth=15;
+        ctx.strokeStyle='yellow';
+//        ctx.arc(0,0,250,0,2*Math.PI);
+        ctx.stroke();
+        ctx.restore();
+
+        //绘制时度
+        for(var i=0;i<12;i++){
+            ctx.save();
+            ctx.beginPath();
+            ctx.lineWidth=8;
+            ctx.strokeStyle='yellow';
+            ctx.translate(350,300);
+            ctx.rotate(i*30*Math.PI/180);
+            ctx.moveTo(0,-220);
+            ctx.lineTo(0,-200);
+            ctx.stroke();
+            ctx.restore();
+        }
+        //绘制分度线
+        for(var i=0;i<60;i++){
+            if(i%5===0)continue;
+            ctx.save();
+            ctx.beginPath();
+            ctx.strokeStyle='yellow';
+            ctx.lineWidth=8;
+            ctx.translate(350,300);
+            ctx.rotate(i*6*Math.PI/180);
+            ctx.moveTo(0,-210);
+            ctx.lineTo(0,-220);
+            ctx.stroke();
+            ctx.restore();
+        }
+   }
+
+
+
+    function maa() {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        mis()
+
+        //获得日期
+        var date=new Date();
+        //时
+        var hours=date.getHours();
+        //分
+        var minutes=date.getMinutes();
+
+        //秒
+        var seconds=date.getSeconds();
+
+        //时针偏移
+        hours=hours+minutes/60;
+        //24进制判断
+        hours=hours>12?hours-12:hours;
+
+        //2.根据当前时间，绘制时针
+        ctx.save();
+        ctx.beginPath();
+        ctx.lineWidth=15;
+        ctx.strokeStyle='yellow';
+        ctx.translate(350,300);
+        ctx.rotate((hours*30-90)*Math.PI/180);
+        ctx.moveTo(0,0);
+        ctx.lineTo(170,0);
+
+        ctx.stroke();
+        ctx.restore();
+
+        //3.绘制分针
+        ctx.save();
+        ctx.beginPath();
+        ctx.lineWidth=10;
+        ctx.strokeStyle='yellow';
+        ctx.translate(350,300);
+        ctx.rotate((minutes*6-90)*Math.PI/180);
+        ctx.moveTo(0,0);
+        ctx.lineTo(180,0);
+        ctx.stroke();
+        ctx.restore();
+//   4.绘制秒针
+        ctx.save();
+        ctx.beginPath();
+
+        ctx.strokeStyle='red';
+        ctx.translate(350,300);
+        ctx.rotate((seconds*6-90)*Math.PI/180);
+        ctx.moveTo(0,0);
+        ctx.lineTo(200,0);
+        ctx.stroke();
+        ctx.restore();
+    }
+    maa();
+    setInterval(maa,1000);
+
+</script>
+</body>
+</html>

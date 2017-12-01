@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../图书管理 操作/jQuery练习/js/jquery-3.2.1.js"></script>
+</head>
+<body>
+<div id="divID">我是大表哥</div>
+<button>按钮</button>
+<script>
+    $("button").click(function () {
+        //需求：发送网络请求获取返回的数据：把页面中的id divID标签内容替换掉
+//        var xhr=new XMLHttpRequest()
+//        xhr.open("get",true);
+//        xhr.send()
+//        xhr.onreadystatechange=function () {
+//            if (xhr.readyState=4){
+//                if(xhr.status==200){
+//                    console.log("请求成功");
+//                    console.log(xhr.responseText);
+//                    $("#divID").html(xhr.responseText);
+//                }
+//            }
+//        }
+        //一行代码实现用load方法替换掉div标签的内容
+        //作用：请求指定的数据，替换掉标签的内容
+        $("#divID").load("php/01-demo.php")
+        //默认发送的是GET的请求，如果向服务器端以JSON对象的方式提交参数，那么发送的就是POST请求
+        //参数提交的时候：支持两种格式
+        //1.JSON对象
+
+//        $("#divID").load("php/01-demo.php,spanClass1",{"name":"mc"})
+        //2.查询字符串
+//        $("#divID").load("php/01-demo.php，spanClass1","name=mc&age=18");
+
+    })
+</script>
+</body>
+</html>

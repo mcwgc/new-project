@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11-排他思想</title>
+    <style>
+        .current{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<button class="current">第1个按钮</button>
+<button >第2个按钮</button>
+<button >第3个按钮</button>
+<button>第4个按钮</button>
+<button>第5个按钮</button>
+<script>
+    // 1.获取标签
+    var btns = document.getElementsByTagName('button');
+
+
+for(var i=0;i<btns.length;i++){
+        var  btn=btns[i];
+    btn.onclick = function () {
+        // 1.清空所有
+        for(var i = 0; i<btns.length; i++){
+            btns[i].className = '';
+        }
+        // 设置类名
+        // 2.设置当前
+        this.className = 'current';
+    };
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../图书管理 操作/jQuery练习/js/jquery-3.2.1.js"></script>
+</head>
+<body>
+<button>添加</button>
+<button>删除</button>
+<button>修改</button>
+<button>查询</button>
+<button>清空</button>
+<script>
+    //封装cookie操作的常见方法：
+    //添加|设置：setCookie
+    //删除数据：removeCokie
+    //检查数据：getCookie
+    document.cookie='key=value'
+    document.cookie='key1=value1';
+
+    //封装cookie操作的常见的方法：
+
+      setCookie('key3','value3')
+      setCookie('key4','value4')
+      setCookie('key22','value22')
+
+    removeCookie('key4');
+</script>
+<script>
+    document.cookie="name=mc";
+    document.cookie="age=21"
+    //默认情况下，在发送网络请求的时候。会自动吧当前页面中可以获取到的所有的cookie数据都提交到服务器端
+    var xhr=new XMLHttpRequest();
+    xhr.open("get",true)
+    xhr.send();
+    xhr.onreadystatechange=function () {
+        if(xhr.readyState=4){
+            if (xhr.status==200){
+                console.log("请求成功"+xhr.statusText);
+            }
+        }
+    }
+</script>
+<script>
+    window.sessionStorage.setItem("age","18");
+    window.sessionStorage.setItem("color","red");
+    $(function () {
+
+        $("button").eq(0).click(function () {
+            window.sessionStorage.setItem("name","weigg");
+        })
+        $("button").eq(1).click(function () {
+            window.sessionStorage.removeItem("name");
+        })
+        $("button").eq(2).click(function () {
+            window.sessionStorage.getItem("name","weiggkk");
+        })
+        $("button").eq(3).click(function () {
+            window.sessionStorage.setItem("name","weigg");
+        })
+        $("button").eq(4).click(function () {
+            window.sessionStorage.clear();
+        })
+    })
+</script>
+<script>
+    $(function () {
+
+
+        window.localStorage.setItem("age","18");
+        window.localStorage.setItem("color","red");
+
+        $("button").eq(0).click(function () {
+            window.localStorage.setItem("name","wendingding");
+        })
+        $("button").eq(1).click(function () {
+            window.localStorage.removeItem("name");
+        })
+        $("button").eq(2).click(function () {
+            window.localStorage.setItem("name","xxxxx");
+        })
+        $("button").eq(3).click(function () {
+            console.log(window.localStorage.getItem("name"));;
+        })
+        $("button").eq(4).click(function () {
+            window.localStorage.clear();
+        })
+    })
+</script>
+<script>
+    //哈希：哈希算法
+    window.location.hash=24;
+    console.log(window.location.hash);
+</script>
+</body>
+</html>

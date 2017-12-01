@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //创建一堆书
+    var bookList=[
+        {name:'西游记',author:'吴承恩'},
+        {name:'水浒传',author:'施耐庵'},
+        {name:'三国演义',author:'罗贯中'},
+        {name:'红楼梦',author:'曹雪芹'}
+    ];
+    //查询
+    function getBookList(name) {
+        for(var  i=0;i<bookList.length;i++){
+            var obj=bookList[i];
+            if (obj.name==name){
+                return  obj;
+            }
+        }
+        throw'sorry,..没有找到这本书';
+    }
+
+ var book=getBookList('水浒传');
+
+
+
+
+
+
+    //增加
+    function addBook(book) {
+
+        bookList.push(book);
+    }
+    addBook({name:'悟空传',author:'今天在'});
+
+
+
+
+
+    //修改
+    function update(name,author) {
+       //查询
+        var book=getBookList(name);
+
+          // 修改
+        book.author=author;
+
+    }
+    update('三国演义',' 小小');
+
+    //删除
+    function deleteBool(name) {
+         //查询
+        var book=getBookList(name);
+        //获取索引
+        var index=bookList.indexOf(book);
+        // 删除
+
+            bookList.splice(index, 1);
+
+    }
+    deleteBool('我的爷爷毛泽东');
+    console.log(bookList);
+
+
+</script>
+</body>
+</html>

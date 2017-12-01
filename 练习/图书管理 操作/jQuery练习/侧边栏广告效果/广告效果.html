@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        span{
+            width: 150px;
+            height: 300px;
+            background: url("images/ad.png");
+            display: inline-block;
+            position: fixed;
+            top: 50%;
+            margin-top: -150px;
+        }
+        .left{
+            left: 0;
+
+        }
+        .right{
+            right: 0;
+        }
+        .close{
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    $(function () {
+
+        //监听关闭按钮的点击事件
+        $('.close').click(function () {
+            //获得当前标签的父亲标签 隐藏
+       $(this).parent().hide(1000);
+        })
+    })
+</script>
+<span class="left"><img src="images/close.png" class="close"></span>
+<span class="right"><img src="images/close.png" class="close"></span>
+<div>
+    <p>01-jQuery准备
+        （1）JavaScript的库
+        （2）jQuery和原生加载方式
+        [1] 函数调用的时间
+        原生 ： window.onload = fn    网页所有资源
+        jQuery:$(document).ready(fn)  DOM
+        [2] 原生加载N次，只会执行1次（后面覆盖前面）
+        jQuery  加载N次，调用N次
+        [3] 简写
+        $(document).ready(function(){....})
+        $().ready(function(){....})
+        $(function(){....})
+        （3）jQuery解决冲突
+        var jq = $.noConflict()
+        (4) 转换问题
+        jQ对象 ！== DOM标签
+        $("div").get(0).innerText  | $("div")[0].innerText
+        jQ----》DOM   get|[]
+        DOM---> jQ    $(DOM)
+
+        02-jQuery基本操作
+        (1) 操作CSS
+        [1] jQ.css("样式属性"，"值")；
+        [2] 链式操作  jQ.css("样式属性1"，"值").css("样式属性2"，"值")；
+        [3] jQ.css({“样式属性1”：“值”，“样式属性2”：“值”})
+        (2) 操作class
+        [1] addClass
+        jQ.addClass("类")；
+        jQ.addClass("类1").addClass("类2")；
+        jQ.addClass("类1 类2")；
+        [2] hasClass
+        检查样式的方法：返回的是布尔类型
+        [3] removeClass
+        [4] toggleClass
+        切换：如果存在，那么就删除，否则就添加
+        (3) 操作位置
+        [1] width()  | height()  传递参数表示设置
+        [2] offset()   当前标签相对窗口的位置 | position() 当前标签相对父标签的位置
+        (4) 操作内容
+        [1] html() ===> innerHTML 标签内容
+        [2] text() ===> innerText 文本内容
+
+
+        03-jQuery选择器
+        （1）基本选择器
+        [1] ID选择器  #ID
+        [2] 类选择器  .class
+        [3] 标签选择器
+        [4] 并集选择器  $("div,#demo,.class1")
+        [5] 通配符选择器  *
+
+        （2）层级选择器
+        [1] 后代选择器  $("#demo div");
+        [2] 直接后代    $("#demo >div");
+        [3] 后面的第一个兄弟节点 $("#demo +div");
+        [4] 后面所有的兄弟节点 $("#demo ~div");
+
+        （3）属性选择器
+        [1] 检查是否有某个属性  $("selector[属性]")
+        [2] 检查属性匹配
+        相等  $("selector[属性='值']")
+        不等  $("selector[属性！='值']")
+        开头  $("selector[属性^='值']")
+        结尾  $("selector[属性$='值']")
+        子串  $("selector[属性*='值']")
+        [3] 检查匹配多个属性
+        $("selector[属性1][属性2]")
+
+        （4）基本筛选选择器
+        （1） 第一个和最后一个  first | last
+        （2） 第几个  eq(0)
+        （3） 排除    not()
+        （4） 大于和小于  gt|lt
+        （5） 奇数和偶数  odd|even
+
+        (5) 父子选择器
+        parent() | parents() |parentsUntil()
+        children() | siblings()
+
+        04-jQuery事件相关
+        鼠标的移入和移除事件：
+        mouseenter|mouseleave
+        mouseover|mouseout     子标签有影响
+        hover方法：参数
+        角标：index()</p>
+    <p>01-jQuery准备
+        （1）JavaScript的库
+        （2）jQuery和原生加载方式
+        [1] 函数调用的时间
+        原生 ： window.onload = fn    网页所有资源
+        jQuery:$(document).ready(fn)  DOM
+        [2] 原生加载N次，只会执行1次（后面覆盖前面）
+        jQuery  加载N次，调用N次
+        [3] 简写
+        $(document).ready(function(){....})
+        $().ready(function(){....})
+        $(function(){....})
+        （3）jQuery解决冲突
+        var jq = $.noConflict()
+        (4) 转换问题
+        jQ对象 ！== DOM标签
+        $("div").get(0).innerText  | $("div")[0].innerText
+        jQ----》DOM   get|[]
+        DOM---> jQ    $(DOM)
+
+        02-jQuery基本操作
+        (1) 操作CSS
+        [1] jQ.css("样式属性"，"值")；
+        [2] 链式操作  jQ.css("样式属性1"，"值").css("样式属性2"，"值")；
+        [3] jQ.css({“样式属性1”：“值”，“样式属性2”：“值”})
+        (2) 操作class
+        [1] addClass
+        jQ.addClass("类")；
+        jQ.addClass("类1").addClass("类2")；
+        jQ.addClass("类1 类2")；
+        [2] hasClass
+        检查样式的方法：返回的是布尔类型
+        [3] removeClass
+        [4] toggleClass
+        切换：如果存在，那么就删除，否则就添加
+        (3) 操作位置
+        [1] width()  | height()  传递参数表示设置
+        [2] offset()   当前标签相对窗口的位置 | position() 当前标签相对父标签的位置
+        (4) 操作内容
+        [1] html() ===> innerHTML 标签内容
+        [2] text() ===> innerText 文本内容
+
+
+        03-jQuery选择器
+        （1）基本选择器
+        [1] ID选择器  #ID
+        [2] 类选择器  .class
+        [3] 标签选择器
+        [4] 并集选择器  $("div,#demo,.class1")
+        [5] 通配符选择器  *
+
+        （2）层级选择器
+        [1] 后代选择器  $("#demo div");
+        [2] 直接后代    $("#demo >div");
+        [3] 后面的第一个兄弟节点 $("#demo +div");
+        [4] 后面所有的兄弟节点 $("#demo ~div");
+
+        （3）属性选择器
+        [1] 检查是否有某个属性  $("selector[属性]")
+        [2] 检查属性匹配
+        相等  $("selector[属性='值']")
+        不等  $("selector[属性！='值']")
+        开头  $("selector[属性^='值']")
+        结尾  $("selector[属性$='值']")
+        子串  $("selector[属性*='值']")
+        [3] 检查匹配多个属性
+        $("selector[属性1][属性2]")
+
+        （4）基本筛选选择器
+        （1） 第一个和最后一个  first | last
+        （2） 第几个  eq(0)
+        （3） 排除    not()
+        （4） 大于和小于  gt|lt
+        （5） 奇数和偶数  odd|even
+
+        (5) 父子选择器
+        parent() | parents() |parentsUntil()
+        children() | siblings()
+
+        04-jQuery事件相关
+        鼠标的移入和移除事件：
+        mouseenter|mouseleave
+        mouseover|mouseout     子标签有影响
+        hover方法：参数
+        角标：index()</p>
+    <p>01-jQuery准备
+        （1）JavaScript的库
+        （2）jQuery和原生加载方式
+        [1] 函数调用的时间
+        原生 ： window.onload = fn    网页所有资源
+        jQuery:$(document).ready(fn)  DOM
+        [2] 原生加载N次，只会执行1次（后面覆盖前面）
+        jQuery  加载N次，调用N次
+        [3] 简写
+        $(document).ready(function(){....})
+        $().ready(function(){....})
+        $(function(){....})
+        （3）jQuery解决冲突
+        var jq = $.noConflict()
+        (4) 转换问题
+        jQ对象 ！== DOM标签
+        $("div").get(0).innerText  | $("div")[0].innerText
+        jQ----》DOM   get|[]
+        DOM---> jQ    $(DOM)
+
+        02-jQuery基本操作
+        (1) 操作CSS
+        [1] jQ.css("样式属性"，"值")；
+        [2] 链式操作  jQ.css("样式属性1"，"值").css("样式属性2"，"值")；
+        [3] jQ.css({“样式属性1”：“值”，“样式属性2”：“值”})
+        (2) 操作class
+        [1] addClass
+        jQ.addClass("类")；
+        jQ.addClass("类1").addClass("类2")；
+        jQ.addClass("类1 类2")；
+        [2] hasClass
+        检查样式的方法：返回的是布尔类型
+        [3] removeClass
+        [4] toggleClass
+        切换：如果存在，那么就删除，否则就添加
+        (3) 操作位置
+        [1] width()  | height()  传递参数表示设置
+        [2] offset()   当前标签相对窗口的位置 | position() 当前标签相对父标签的位置
+        (4) 操作内容
+        [1] html() ===> innerHTML 标签内容
+        [2] text() ===> innerText 文本内容
+
+
+        03-jQuery选择器
+        （1）基本选择器
+        [1] ID选择器  #ID
+        [2] 类选择器  .class
+        [3] 标签选择器
+        [4] 并集选择器  $("div,#demo,.class1")
+        [5] 通配符选择器  *
+
+        （2）层级选择器
+        [1] 后代选择器  $("#demo div");
+        [2] 直接后代    $("#demo >div");
+        [3] 后面的第一个兄弟节点 $("#demo +div");
+        [4] 后面所有的兄弟节点 $("#demo ~div");
+
+        （3）属性选择器
+        [1] 检查是否有某个属性  $("selector[属性]")
+        [2] 检查属性匹配
+        相等  $("selector[属性='值']")
+        不等  $("selector[属性！='值']")
+        开头  $("selector[属性^='值']")
+        结尾  $("selector[属性$='值']")
+        子串  $("selector[属性*='值']")
+        [3] 检查匹配多个属性
+        $("selector[属性1][属性2]")
+
+        （4）基本筛选选择器
+        （1） 第一个和最后一个  first | last
+        （2） 第几个  eq(0)
+        （3） 排除    not()
+        （4） 大于和小于  gt|lt
+        （5） 奇数和偶数  odd|even
+
+        (5) 父子选择器
+        parent() | parents() |parentsUntil()
+        children() | siblings()
+
+        04-jQuery事件相关
+        鼠标的移入和移除事件：
+        mouseenter|mouseleave
+        mouseover|mouseout     子标签有影响
+        hover方法：参数
+        角标：index()</p>
+    <p>01-jQuery准备
+        （1）JavaScript的库
+        （2）jQuery和原生加载方式
+        [1] 函数调用的时间
+        原生 ： window.onload = fn    网页所有资源
+        jQuery:$(document).ready(fn)  DOM
+        [2] 原生加载N次，只会执行1次（后面覆盖前面）
+        jQuery  加载N次，调用N次
+        [3] 简写
+        $(document).ready(function(){....})
+        $().ready(function(){....})
+        $(function(){....})
+        （3）jQuery解决冲突
+        var jq = $.noConflict()
+        (4) 转换问题
+        jQ对象 ！== DOM标签
+        $("div").get(0).innerText  | $("div")[0].innerText
+        jQ----》DOM   get|[]
+        DOM---> jQ    $(DOM)
+
+        02-jQuery基本操作
+        (1) 操作CSS
+        [1] jQ.css("样式属性"，"值")；
+        [2] 链式操作  jQ.css("样式属性1"，"值").css("样式属性2"，"值")；
+        [3] jQ.css({“样式属性1”：“值”，“样式属性2”：“值”})
+        (2) 操作class
+        [1] addClass
+        jQ.addClass("类")；
+        jQ.addClass("类1").addClass("类2")；
+        jQ.addClass("类1 类2")；
+        [2] hasClass
+        检查样式的方法：返回的是布尔类型
+        [3] removeClass
+        [4] toggleClass
+        切换：如果存在，那么就删除，否则就添加
+        (3) 操作位置
+        [1] width()  | height()  传递参数表示设置
+        [2] offset()   当前标签相对窗口的位置 | position() 当前标签相对父标签的位置
+        (4) 操作内容
+        [1] html() ===> innerHTML 标签内容
+        [2] text() ===> innerText 文本内容
+
+
+        03-jQuery选择器
+        （1）基本选择器
+        [1] ID选择器  #ID
+        [2] 类选择器  .class
+        [3] 标签选择器
+        [4] 并集选择器  $("div,#demo,.class1")
+        [5] 通配符选择器  *
+
+        （2）层级选择器
+        [1] 后代选择器  $("#demo div");
+        [2] 直接后代    $("#demo >div");
+        [3] 后面的第一个兄弟节点 $("#demo +div");
+        [4] 后面所有的兄弟节点 $("#demo ~div");
+
+        （3）属性选择器
+        [1] 检查是否有某个属性  $("selector[属性]")
+        [2] 检查属性匹配
+        相等  $("selector[属性='值']")
+        不等  $("selector[属性！='值']")
+        开头  $("selector[属性^='值']")
+        结尾  $("selector[属性$='值']")
+        子串  $("selector[属性*='值']")
+        [3] 检查匹配多个属性
+        $("selector[属性1][属性2]")
+
+        （4）基本筛选选择器
+        （1） 第一个和最后一个  first | last
+        （2） 第几个  eq(0)
+        （3） 排除    not()
+        （4） 大于和小于  gt|lt
+        （5） 奇数和偶数  odd|even
+
+        (5) 父子选择器
+        parent() | parents() |parentsUntil()
+        children() | siblings()
+
+        04-jQuery事件相关
+        鼠标的移入和移除事件：
+        mouseenter|mouseleave
+        mouseover|mouseout     子标签有影响
+        hover方法：参数
+        角标：index()</p>
+</div>
+</body>
+</html>

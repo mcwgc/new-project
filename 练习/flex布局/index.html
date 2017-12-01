@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #main{
+            width: 600px;
+            height: 300px;
+            background-color: red;
+            margin: 100px auto;
+            display: flex;
+            /*设置主轴的方向，垂直从上开始*/
+            flex-direction:row;
+            /*设置主轴上的子标签的对齐方式*/
+            justify-content:center;
+            /*align-items:baseline ;*/
+            /*flex-wrap: wrap;*/
+            align-items: center;
+
+
+        }
+        .test1{
+
+            background-color: pink;
+            height: 50px;
+            width: 50px;
+            margin-right: 10px;
+            /*align-self: flex-start;*/
+            flex: 3;
+        }
+        .test2{
+
+            background-color: purple;
+            height: 50px;
+            width: 50px;
+            margin-right: 10px;
+            /*align-self: flex-start;*/
+            flex: 3;
+        }
+        .test3{
+
+            background-color: green;
+            height: 50px;
+            width: 50px;
+            margin-right: 10px;
+            /*align-self: flex-end;*/
+            flex:3;
+        }
+        .test4{
+
+            background-color: blue;
+            height: 50px;
+            width: 50px;
+            margin-right: 10px;
+            /*order: -2;*/
+            /*align-self: flex-end;*/
+            flex: 3;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div class="test1">111</div>
+    <div class="test2">222</div>
+    <div class="test3">333</div>
+    <div class="test4">444</div>
+</div>
+</body>
+</html>

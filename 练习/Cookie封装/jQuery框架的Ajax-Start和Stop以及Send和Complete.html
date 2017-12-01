@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../图书管理 操作/jQuery练习/js/jquery-3.2.1.js"></script>
+</head>
+<body>
+<button>GET请求</button>
+<script>
+    //$.get()
+    $(function () {
+        $("button").click(function () {
+            $(document).ajaxStart(function () {
+                console.log(" 第一个网络请求开始发送的时候调用");
+            });
+            $(document).ajaxSend(function () {
+                console.log("开始发送网络请求的时候调用");
+            });
+            $(document).ajaxComplete(function () {
+                console.log("请求结束的时候调用");
+            });
+            $(document).ajaxStop(function () {
+                console.log("最后第一个网络请求开始发送完成的时候调用");
+            });
+
+            $.ajax("php/01-demo.php",{
+                data:"name=mc&color=green",
+                type:"post",
+                context:$("div"),
+                timeout:10,
+                error:function (xhr,errorMsg) {
+                    console.log(errorMsg);
+                },
+                success:function (res,status,xhr) {
+//                    console.log("请求成功的回调");
+//                    console.log(res);
+//                    console.log(status);
+//                    console.log(xhr);
+//                    //$("div").html(res);
+//                    this.html(res);
+                },
+
+            })
+            $.ajax("php/02-demo.php",{
+                data:"name=mc&color=yellow",
+                type:"post",
+                context:$("div"),
+                timeout:100,
+                error:function (xhr,errorMsg) {
+                    console.log(errorMsg);
+                },
+                success:function (res,status,xhr) {
+//                    console.log(" 请求成功的回调");
+//                    console.log(res);
+//                    console.log(status);
+//                    console.log(xhr);
+//                    this.html(res)
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>

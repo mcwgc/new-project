@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+function foo() {
+num = 123;
+console.log(num);//123
+}
+foo();
+console.log(num)//123
+
+
+
+    var scope = "global";
+
+    foo();
+
+    function foo() {
+
+        console.log(scope); //undefined
+        var scope = "local";
+        console.log(scope); //local
+    }
+
+    console.log(scope); //global
+
+
+
+//var scope;
+//  scope = "global";
+//
+//    foo();
+//
+//    function foo() {
+//        var scope;
+//
+//        console.log(scope);
+//         scope = "local";
+//        console.log(scope);
+//    }
+//
+//    console.log(scope);
+
+
+    if("a" in window){
+        var a = 10;
+    }
+    console.log(a);//10
+
+
+
+//    var a;
+//    if("a" in window){
+//        a = 10;
+//    }
+//    console.log(a);
+
+function f1(){
+    if("a" in window){
+        var a = 10;
+    }
+    console.log(a);//undefined
+}
+
+f1();
+
+
+
+
+
+//function f1(){
+//    var a;
+//    if("a" in window){
+//        a = 10;
+//    }
+//    console.log(a);
+//}
+//
+//f1();
+
+
+    if(!"a" in window){
+        var a = 10;
+        console.log('---'); //不会打印
+    }
+    console.log(a);  //undefined
+
+//
+//      var a ;
+//    if(!"a" in window){
+//        a = 10;
+//        console.log('---');
+//    }
+//    console.log(a);
+
+var foo = 1;
+function bar() {
+
+    if(!foo)
+    {
+        var foo = 10;
+    }
+    alert(foo);//10
+}
+bar();
+
+
+
+//
+//var foo;
+// foo = 1;
+//function bar() {
+//    var foo;
+//
+//    if(!foo)
+//    {
+//        foo = 10;
+//    }
+//    alert(foo);
+//}
+//bar();
+
+
+
+function Foo() {  //构造函数
+    getName = function(){ //全局变量接受匿名函数
+        console.log("1");
+    } ;
+    return this;
+}
+Foo.getName = function() { //静态方法
+    console.log("2");
+};
+Foo.prototype.getName = function(){ //原型方法
+    console.log("3");
+};
+
+function getName(){     //声明函数
+    console.log("5");
+}
+var getName = function() {  //匿名函数表达式
+    console.log("4");
+};
+
+Foo.getName();//2
+getName();//4
+Foo().getName();getName = function(){ //全局变量接受匿名函数
+    console.log("1");
+}
+
+getName();//1
+new Foo.getName();//2
+new Foo().getName();3
+new new Foo().getName();3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function Foo() {
+    getName = function(){
+        console.log("1");
+    };
+    return this;
+}
+Foo.getName = function() {
+    console.log("2");
+};
+Foo.prototype.getName = function(){
+    console.log("3");
+};
+
+var getName = function() {
+    console.log("4");
+};
+function getName(){
+    console.log("5");
+}
+Foo.getName();
+getName();
+Foo().getName();
+
+getName();
+new Foo.getName();
+new Foo().getName();
+new new Foo().getName();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

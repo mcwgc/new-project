@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="egde">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .container{
+            height: 30px;
+            background-color: yellow;
+            /*width: 100%;*/
+            margin: 0 auto;
+        }
+        /*使用媒体查询设置对应的宽度*/
+        /*根据对应的档位分别来设置不同的宽度
+        这个表示屏幕复合and中设置的条件就设置对应的大括号中的代码值*/
+
+        /*我们经过分析可以把对应的宽度分为四个档位
+   * <750 w：100%
+   *  750 <=970 w:750
+   *  970 <=1170 w：970
+   *  >1170     w:1170*/
+        @media screen and (max-width: 750px) {
+            /*表示最大值是750，就是<=750，我们设置宽度为100%*/
+            .container{
+                width: 100%;
+            }
+        }
+        @media screen and (min-width: 750px) and (max-width: 950px) {
+            .container{
+                width: 750px;
+            }
+
+        }
+        @media screen and (min-width: 950px) and (max-width: 1170px) {
+            .container{
+                width: 950px;
+            }
+
+        }
+        @media screen and (min-width: 1170px) {
+            .container{
+                width: 1170px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container"></div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../图书管理 操作/jQuery练习/js/jquery-3.2.1.js"></script>
+</head>
+<body>
+<button>Ajax-GET请求</button>
+<button>Ajax-POST请求</button>
+<script>
+$("button").eq(0).click(function () {
+    var obj={"des":"dex"};
+    //两种用法：
+    //$.ajax（url，options）
+    //$.ajax（options）
+//    主要参数：
+//    url：请求路径
+//    data：请求提交的参数
+//    async：是否异步发送网络请求   默认true
+//    cache：是否进行缓存处理，默认为true
+//    context：指定回调函数中的this
+//    dataType：预期服务器返回的额数据类型
+//    timeTou：请求超时时间
+//    type：请求的类型
+//    ------
+//    beforeSend（XHR）
+//    complete（XHR，TS）
+//    error(XHR,errorMsg)
+//    success()
+    $.ajax("php/02-demo.php",{
+        data:"name=mc&color=green",
+        type:"get",
+        context:$("div"),
+        timeout:100,
+        error:function (xhr,errorMsg) {
+            console.log(errorMsg);
+        },
+        success:function (res,status,xhr) {
+            console.log("请求成功的回调");
+            console.log(res);
+            console.log(status);
+            console.log(xhr);
+            this.html(res);
+        },
+        beforeSend:function () {
+            console.log("发送请求之前执行的回调函数");
+        },
+        complete:function () {
+            console.log(" 不论是请求成功还是失败，最后都会调用这个方法");
+        }
+    })
+
+
+
+})
+
+$("button").eq(1).click(function () {
+    var obj={"des":"dex"};
+    //两种用法：
+    //$.ajax（url，options）
+    //$.ajax（options）
+//    主要参数：
+//    url：请求路径
+//    data：请求提交的参数
+//    async：是否异步发送网络请求   默认true
+//    cache：是否进行缓存处理，默认为true
+//    context：指定回调函数中的this
+//    dataType：预期服务器返回的额数据类型
+//    timeTou：请求超时时间
+//    type：请求的类型
+//    ------
+//    beforeSend（XHR）
+//    complete（XHR，TS）
+//    error(XHR,errorMsg)
+//    success()
+    $.ajax("php/02-demo.php",{
+        data:"name=mc&color=green",
+        type:"post",
+        context:$("div"),
+        timeout:10,
+        error:function (xhr,errorMsg) {
+            console.log(errorMsg);
+        },
+        success:function (res,status,xhr) {
+            console.log("请求成功的回调");
+            console.log(res);
+            console.log(status);
+            console.log(xhr);
+            this.html(res);
+        },
+        beforeSend:function () {
+            console.log("发送请求之前执行的回调函数");
+        },
+        complete:function () {
+            console.log(" 不论是请求成功还是失败，最后都会调用这个方法");
+        }
+    })
+})
+</script>
+</body>
+</html>

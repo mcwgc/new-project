@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+       body{
+           background: url("xzq.jpg")no-repeat;
+           background-size: cover;
+           overflow: hidden;
+
+       }
+
+        h1{
+            color: chartreuse;
+            font-family:'楷体';
+            text-align: center;
+            margin:50px auto;
+        }  h3{
+            color: yellow;
+            font-family:'新宋体';
+            text-align: center;
+
+        }
+        #box{
+            width: 300px;
+            height: 400px;
+            border: 1px solid #ccc;
+            margin-left: 600px;
+            margin-top: 150px;
+        }
+        #box ul{
+            width: 100%;
+            height: 100%;
+            list-style: none;
+        }
+        #box ul li{
+            background: url("jjs.jpg") no-repeat;
+            background-size: 300px 400px;
+            width: 100px;
+            height: 100px;
+            float: left;
+            position: relative;
+        }
+        .heart{
+            position: absolute;
+            left: 50px;
+            bottom: 50px;
+            animation: love 10s linear infinite;
+        }
+        @keyframes move {
+            from{
+                transform:rotateX(-15deg) rotateY(0deg);
+            }
+            to{
+                transform:rotateX(-15deg) rotateY(360deg);
+            }
+        }
+        @keyframes love {
+            0%{
+                left:50px;
+                bottom:50px;
+                opacity: 1;
+            }
+            20%{
+                left: 400px;
+                bottom: 400px;
+                opacity: 0;
+            }
+            40%{
+                left: 800px;
+                bottom: 800px;
+                opacity: 1;
+            }
+            60%{
+                left: 1200px;
+                bottom: 500px;
+                opacity: 0;
+            }
+            80%{
+                left: 1000px;
+                bottom: 200px;
+                opacity: 1;
+            }
+            100%{
+                left: 800px;
+                bottom: -200px;
+                opacity: 0;
+            }
+        }
+        #uul{
+            width: 200px;
+            height: 200px;
+            list-style: none;
+            position: absolute;
+            left: 80%;
+            margin-left: -100px;
+            bottom: 100px;
+            transform-style: preserve-3d;
+            animation: move 5s linear infinite;
+        }
+        #uul li{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: #000;
+        }
+        #uul li:nth-child(1){
+
+            transform: rotateY(60deg) translateZ(200px);
+        }
+        #uul li:nth-child(2){
+
+            transform: rotateY(120deg) translateZ(200px);
+        }
+        #uul li:nth-child(3){
+
+            transform: rotateY(180deg) translateZ(200px);
+        }
+        #uul li:nth-child(4){
+
+            transform: rotateY(240deg) translateZ(200px);
+        }
+        #uul li:nth-child(5){
+
+            transform: rotateY(300deg) translateZ(200px);
+        }
+        #uul li:nth-child(6){
+
+            transform: rotateY(360deg) translateZ(200px);
+        }
+        #uul li img{
+            width: 100%;
+            height: 100%;
+            border: 5px solid #fff;
+            box-sizing: border-box;
+        }
+        #uul:hover{
+            /*暂停动画*/
+            animation-play-state: paused;
+        }
+        #uul:hover li img{
+            opacity: 0.5;
+        }
+        #uul li:hover img{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<img src="heart.png" alt="" class="heart">
+<audio src="Valerie_银元 - 小永远（cover：何洁）.mp3" autoplay='autoplay' loop='loop'></audio>
+<h1>姐妹花</h1>
+<h3>《家婵平悠》</h3>
+<ul id="uul">
+    <li><img src="1.jpg" alt=""></li>
+    <li><img src="2.jpg" alt=""></li>
+    <li><img src="3.jpg" alt=""></li>
+    <li><img src="4.jpg" alt=""></li>
+    <li><img src="5.jpg" alt=""></li>
+    <li><img src="6.jpg" alt=""></li>
+</ul>
+<div id="box">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script src="MyFunc.js"></script>
+<script>
+    // 1.获取标签
+    var box = document.getElementById('box');
+    var oul = box.children[0];
+    var list = oul.children;
+
+    // 2.设置每一个li的背景图片位置
+    var count = 3;
+    var row = 0;
+    var cols = 0;
+    for(var i= 0; i<list.length; i++){
+        row = parseInt(i/count);
+        cols = i % count;
+        // 取出盒子
+        var li = list[i];
+//        li.innerHTML = row + ',' + cols;
+        li.style.backgroundPosition = -cols * 100 + 'px '+ (-row *100) + 'px';
+        li.cols = cols;
+        li.row = row;
+    }
+
+    // 3.做动画
+    var anim={
+        a0: function () {
+            for(var i= 0; i<list.length; i++){
+                var li = list[i];
+                // 修改位置
+                li.style.left = -600 + 'px';
+                li.style.top = -300 + 'px';
+                li.style.opacity = 0;
+
+                (function (index) {
+                    setTimeout(function () {
+                        buffer(list[index],{left:0,top:0,opacity:1});
+                    },index * 150);
+                })(i);
+            }
+        },
+        a1: function () {
+            for(var i= 0; i<list.length; i++){
+                var li = list[i];
+                // 修改位置
+                li.style.left = 0 + 'px';
+                li.style.top = -300 + 'px';
+                li.style.opacity = 0;
+
+                (function (index) {
+                    setTimeout(function () {
+                        buffer(list[index],{left:0,top:0,opacity:1});
+                    },index * 150);
+                })(i);
+            }
+        },
+        a2: function () {
+            for(var i= 0; i<list.length; i++){
+                var li = list[i];
+                // 修改位置
+                li.style.left = 600 + 'px';
+                li.style.top = 0 + 'px';
+                li.style.opacity = 0;
+
+                (function (index) {
+                    setTimeout(function () {
+                        buffer(list[index],{left:0,top:0,opacity:1});
+                    },list[index].cols * 150);
+                })(i);
+            }
+        },
+        a3:function () {
+            for(var i= 0; i<list.length; i++){
+                var li = list[i];
+                // 修改位置
+                li.style.left = 0 + 'px';
+                li.style.top = 300 + 'px';
+                li.style.opacity = 0;
+
+                (function (index) {
+                    setTimeout(function () {
+                        buffer(list[index],{left:0,top:0,opacity:1});
+                    },index * 150);
+                })(i);
+            }
+        }
+    };
+
+var num= 0;
+setInterval(function () {
+    anim['a'+num]();
+    num++;
+    if(num>3)num=0;
+},4000);
+
+
+
+
+
+</script>
+</body>
+</html>

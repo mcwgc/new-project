@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<script>
+    //面向对象基本写法
+ /*   var dog={
+        name:'虎仔',
+        age:8,
+        sex:'男',
+        eat:function () {
+            console.log('饿了');
+
+        },
+        run:function () {
+            console.log('爱跑');
+        }
+    };
+    dog.eat();*/
+
+ //面向对象一般写法
+/*
+ function dog() {
+     var obj=new Object() ;
+     obj.name='小虎';
+     obj.age=8;
+     obj.sex='男';
+     obj.eat=function(){
+         console.log('吃了');
+
+     };
+     obj.run=function () {
+         console.log('跑');
+
+
+     };
+     return obj;
+ }
+ var dd=dog();
+ console.log(dd);
+  dd.name='呼呼';
+  dd.age='6';
+  dd.sex='女';
+  console.log(dd.name);
+  console.log(dd.age);
+  console.log(dd.sex);
+ console.log('--------');
+ var d1=dog();
+ d1.name='虎';
+  d1.age='8';
+  d1.sex='男';
+  console.log(d1.name);
+  console.log(d1.age);
+  console.log(d1.sex);
+*/
+//构造函数面向对象
+//    function Dog(name,sex,age) {
+//        this.name=name;
+//        this.sex=sex;
+//        this.age=age;
+//        this.run=function (someWhere) {
+//            console.log(this.name + '在' + someWhere + '跑');
+//
+//        };
+//        this.eat=function (someWhere) {
+//            console.log(this.name + '在吃' + someWhere);
+//
+//        };
+//
+//    }
+//       var dog=new Dog('小虎','男',8)
+//    var oul=document.getElementById('oul');
+//    var list= document.getElementsByTagName("li");
+//    for(var i=0;i<list.length;i++){
+//        list[i].index=i;
+//        list[i].onclick=function(){
+//            console.log(this.index);
+//        }
+//    }
+//三个数的最大值
+
+    /*function maxNum(num1,num2,num3) {
+        var max,max;
+        if(num1>num2){
+            max=num1
+        }
+        else{
+            max=num2
+        }
+        if(max>num3){
+            max=max
+        }
+        else {
+            max1=num3
+        }
+        return max1;
+    }
+
+    console.log(maxNum(3, 4, 5));*/
+    /*f1();
+    console.log(c);
+    console.log(b);
+    console.log(a);
+    function f1() {*/
+//        var a = b = c = 9;
+    /*    var a=9;
+            b=9;
+            c=9;
+        console.log(a);
+        console.log(b);
+        console.log(c);
+    }*/
+
+    for(var i=1; i<100;i++){
+
+        if(i<=1){
+            continue;
+        }
+
+        var mc=true;
+
+        for(var j=2;j<i;j++) {
+
+            if (i % j == 0) {
+                mc = false;
+                break;
+            }
+
+
+        }
+        if (mc) {
+            document.write(i+'<br>')
+        }
+
+
+    }
+
+</script>
+</body>
+</html>
